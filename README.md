@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 cv_en_ligne/
 │
 ├── css/
@@ -18,3 +19,6 @@ cv_en_ligne/
 ├── user-profile.php
 ├── README.md (structure)
 "" 
+=======
+# cv_en_ligne
+>>>>>>> 4098e818ad89ab055cc2f57db01802ac0f3b08a3
