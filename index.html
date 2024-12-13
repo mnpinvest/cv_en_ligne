@@ -96,17 +96,6 @@
         nav a:hover {
             text-decoration: underline;
         }
-
-        .blinking-text {
-            /* Autres styles */
-            /* animation: blinker 1.5s linear infinite; */ /* Animation désactivée temporairement */
-        }
-        
-        @keyframes blinker {
-            50% {
-                opacity: 0;
-            }
-        }
             
         main {
             margin-top: 0;
@@ -369,6 +358,21 @@
 
     // Fonctions similaires pour addFormation, addCompetence, addDiplome, addRealisation
     // ...
+
+   .blinking-text {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            text-align: center;
+            margin: 20px 0;
+            animation: blinker 1.5s linear infinite;
+        }
+        
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
 </script>
     
 </head>
