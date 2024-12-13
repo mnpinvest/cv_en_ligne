@@ -72,17 +72,26 @@
         }
 
         nav {
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            white-space: nowrap;
+            position: sticky; 
+            top: 40px; 
+            height: 50px; 
+            z-index: 1000; 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            background-color: #d3d3d3; /* Gris Clair */ 
+            padding: 10px; 
+            width: 100%; 
+            margin-bottom: 0; 
+            overflow-x: auto; /* Permet le défilement horizontal */ 
+            white-space: nowrap; /* Empêche la rupture de ligne */
         }
 
         nav a {
             color: #2c3e50;
             text-decoration: none;
-            margin: 0 5px;
-            font-size: 0.9em;
+            margin: 0 10px;
+            font-size: 1em;
             font-weight: bold;
             padding: 10px 15px;
         }
