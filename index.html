@@ -88,9 +88,12 @@
         nav a {
             color: #2c3e50;
             text-decoration: none;
-            margin: 0 10px;
-            font-size: 1em;
+            margin: 0 5px;
+            font-size: 0.9em;
             font-weight: bold;
+            padding: 10px;
+            flex: 1 1 auto;
+            text-align: center;
         }
 
         nav a:hover {
@@ -177,10 +180,10 @@
 }
 
 @media (max-width: 768px) { 
-    header { 
-        flex-direction: column; 
-        align-items: center;
+    nav { 
+        flex-wrap: wrap;
     }
+    
 .carousel img {
     flex-shrink: 0;
     width: 300px;
