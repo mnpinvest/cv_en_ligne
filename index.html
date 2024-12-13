@@ -39,7 +39,7 @@
 
         header img {
             border-radius: 50%;
-            width: 150px;
+            width: 100px;
             height: auto;
             position: absolute; /* Position absolue pour la maintenir en haut à droite */
             top: 10px; /* Ajustement de la position supérieure */
@@ -49,6 +49,7 @@
         .contact-info {
             text-align: left;
             font-size: 1em;
+            margin-right: 20px;
         }
 
         .contact-info p {
@@ -56,13 +57,14 @@
         }
 
         .title {
-            position: relative; /* Changement de absolute à relative */
-            left: 50%; /* Réinitialisation de la position gauche */
+            position: absolute;
+            left: calc(50% + 10px);
             transform: translateX(-50%); /* Suppression de la transformation */
-            top: 10px; /* Réinitialisation de la position supérieure */
+            top: 15px; /* Réinitialisation de la position supérieure */
             text-align: center;
-            font-size: 1.2em;
+            font-size: 1.5em;
             font-weight: bold;
+            margin: 0;
         }
 
         nav {
