@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
     <title>CV de Si Mohamed M'Nari</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
     <style>
@@ -182,9 +181,7 @@
 
 .carousel-track {
     flex-shrink: 0;
-    width: 300px;
     height: 200px;
-    object-fit: cover;
     display: flex;
     width: calc(300px * 24);
     animation: scroll 240s linear infinite;
@@ -192,19 +189,22 @@
     padding: 0;
 }
 
+.carousel-track img {
+    flex-shrink: 0;
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+
 @media (max-width: 768px) { 
     header, nav, .section { 
         flex-direction: column; 
     }
-.carousel img {
-    flex-shrink: 0;
-    width: 300px;
-    height: 200px;
-    object-fit: contain;
-    margin: 0;
-    padding: 0;
-}
-}
+    .carousel img {
+        width: 100px;
+        height: auto;
+     }
+   }
 
 @keyframes scroll {
     0% {
@@ -213,7 +213,7 @@
     100% {
         transform: translateX(-7200px);
     }
-}
+ }
 
         h1 {
             margin: 0;
@@ -297,7 +297,7 @@
             margin: 5px 0;
         }
 
-        P {
+        p {
             line-height: 1.0;
             margin-top: 10px; 
             margin-bottom: 10px; 
@@ -317,17 +317,56 @@
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('nav a').forEach(function (link) {
-                link.addEventListener('click', function (event) {
-                    document.querySelectorAll('section').forEach(function (section) {
-                        section.style.backgroundColor = '#fff'; // Réinitialiser la couleur de fond de toutes les sections
-                    });
-                    var targetId = event.target.getAttribute('href').substring(1) + '-section';
-                    document.getElementById(targetId).style.backgroundColor = '#e2f0ff'; // Changer la couleur de fond au clic
-                });
+        // Gestion des en-têtes de section
+        const headers = document.querySelectorAll('.section-header');
+        headers.forEach(header => {
+            header.addEventListener('click', function () {
+                const content = this.nextElementSibling;
+                content.classList.toggle('open');
             });
         });
-    </script>
+
+        // Gestion des liens de navigation
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('href').substring(1); // Suppression de '-section'
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    const content = targetSection.querySelector('.section-content');
+                    if (content) {
+                        content.classList.toggle('open');
+                    }
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Soumission du formulaire
+        document.getElementById('cvForm').addEventListener('submit', function(event) {
+            alert('Formulaire soumis !');
+        });
+    });
+
+    // Fonctions pour ajouter des champs dynamiques
+    function addExperience() {
+        const container = document.getElementById('experiences');
+        const newExperience = document.createElement('div');
+        newExperience.className = 'experience';
+        newExperience.innerHTML = `
+            <label for="experience-title">Titre :</label>
+            <input type="text" name="experience-title[]" required><br><br>
+            <label for="experience">Description :</label>
+            <textarea name="experience[]" required></textarea><br><br>
+        `;
+        container.appendChild(newExperience);
+    }
+
+    // Fonctions similaires pour addFormation, addCompetence, addDiplome, addRealisation
+    // ...
+</script>
+    
 </head>
  
 <body>
@@ -341,8 +380,8 @@
         <div class="title">
             <h1>Business Strategist</h1>
         </div>
+        <a href="images/photo_1.png" data-lightbox="image-1">
         <img src="images/photo_1.png" alt="Photo de Si Mohamed M'Nari">
-        <a href="images/photo_1.png" data-lightbox="image-1"> <img src="images/photo_1.png" alt="Profile Photo"> 
         </a>
     </header>
     
@@ -354,8 +393,8 @@
         <a href="#realisation">Réalisation</a>
         <a href="#create-cv">Créer CV</a>
     </nav>
+    
     <main>
-
     <div class="blinking-text"> 
         <p>Découvrez quelques-unes de mes réalisations exceptionnelles ! </p>
     </div>
@@ -666,9 +705,10 @@
             container.appendChild(newRealisation);
         }
     </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-    </body>
-    </html>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js">
+</body>
+</html>
     
 
         
