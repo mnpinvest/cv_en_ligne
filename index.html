@@ -98,6 +98,21 @@
             text-decoration: underline;
         }
 
+        .blinking-text {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            text-align: center;
+            margin: 20px 0;
+            animation: blinker 1.5s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+            
         main {
             margin-top: 0;
         }
@@ -150,7 +165,6 @@
     padding: 0;
 }
 
-/* Styles pour les paragraphes à l'intérieur de .section-content */
 .section-content p { 
     margin: 10px 0;
 }
@@ -163,6 +177,7 @@
     height: 200px;
     margin: 3px;
     padding: 0;
+    position: relative;
 }
 
 .carousel-track {
