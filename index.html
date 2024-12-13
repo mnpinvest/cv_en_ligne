@@ -6,33 +6,32 @@
     <title>CV de Si Mohamed M'Nari</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
     <style>
-
-        *{
-            margin:0;
+        * {
+            margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            background-color: #2c3e50; 
-            font-family: Arial, sans-serif; 
-            line-height: 1.6; 
-            margin: 0; 
+            background-color: #2c3e50;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
             padding: 0;
         }
 
-        main{
+        main {
             padding: 20px;
-            overflow-y:auto;
+            overflow-y: auto;
         }
 
         header {
             display: flex;
             justify-content: space-between;
-            align-items: center; /* Changement de flex-start à center */
-            height: auto; /* Ajustement de la hauteur pour une meilleure réactivité */
+            align-items: center;
+            height: auto;
             padding: 20px;
-            background-color: #2c3e50; /* Bleu Marine */
+            background-color: #2c3e50;
             color: #fff;
             position: relative;
         }
@@ -41,9 +40,9 @@
             border-radius: 50%;
             width: 140px;
             height: auto;
-            position: absolute; /* Position absolue pour la maintenir en haut à droite */
-            top: 10px; /* Ajustement de la position supérieure */
-            right: 20px; /* Ajustement de la position droite */
+            position: absolute;
+            top: 10px;
+            right: 20px;
             cursor: pointer;
         }
 
@@ -60,8 +59,8 @@
         .title {
             position: absolute;
             left: calc(50% + 10px);
-            transform: translateX(-50%); /* Suppression de la transformation */
-            top: 15px; /* Réinitialisation de la position supérieure */
+            transform: translateX(-50%);
+            top: 15px;
             text-align: center;
             font-size: 1.5em;
             font-weight: bold;
@@ -76,12 +75,12 @@
             margin: 0;
             display: flex;
             justify-content: center;
-            background-color: #d3d3d3; /* Gris Clair */
+            background-color: #d3d3d3;
             padding: 10px;
             width: 100%;
             margin-bottom: 0;
-            overflow-x: auto; /* Permet le défilement horizontal */
-            white-space: nowrap; /* Empêche la rupture de ligne */
+            overflow-x: auto;
+            white-space: nowrap;
         }
 
         nav a {
@@ -90,115 +89,111 @@
             margin: 0 10px;
             font-size: 1em;
             font-weight: bold;
-            padding: 10px 15px; /* Augmenter le padding pour une meilleure visibilité */
+            padding: 10px 15px;
         }
 
         nav a:hover {
             text-decoration: underline;
         }
-            
+
         main {
             margin-top: 0;
         }
 
-        .section { 
-            margin:0;
+        .section {
+            margin: 0;
             padding: 0;
         }
 
         .section-header {
-            width: 100%; 
-            margin: 0; 
+            width: 100%;
+            margin: 0;
             display: block;
-            background-color: #2c3e50; 
-            color: #fff; 
-            padding: 10px; 
-            font-size: 24px; 
-            font-weight: bold; 
-            text-align: center; 
-            border: 2px solid #fff; 
-            border-radius: 5px; 
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid #fff;
+            border-radius: 5px;
             cursor: pointer;
         }
 
-        .section + .section { 
+        .section + .section {
             margin-top: -2px;
         }
 
-        
-        /* Styles pour .section-content */
-.section-content { 
-    overflow-y: auto; 
-    max-height: 80vh;
-    transition: max-height 0.5s ease-out; 
-    padding: 10px; 
-    border: none;
-    margin: 0;
-    display: none; 
-}
+        .section-content {
+            overflow-y: auto;
+            max-height: 80vh;
+            transition: max-height 0.5s ease-out;
+            padding: 10px;
+            border: none;
+            margin: 0;
+            display: none;
+        }
 
-/* Styles supplémentaires lorsque .section-content a la classe .open */
-.section-content.open { 
-    max-height: 1000px; 
-    display: block;
-}
+        .section-content.open {
+            max-height: 1000px;
+            display: block;
+        }
 
-/* Styles pour les balises h3 à l'intérieur de .section-content */
-.section-content h3 { 
-    margin: 0; 
-    padding: 0;
-}
+        .section-content h3 {
+            margin: 0;
+            padding: 0;
+        }
 
-.section-content p { 
-    margin: 10px 0;
-}
+        .section-content p {
+            margin: 10px 0;
+        }
 
+        .carousel {
+            overflow: hidden;
+            width: 100%;
+            height: 200px;
+            margin: 3px;
+            padding: 0;
+            position: relative;
+        }
 
-/* Styles du carrousel */
-.carousel {
-    overflow: hidden;
-    width: 100%;
-    height: 200px;
-    margin: 3px;
-    padding: 0;
-    position: relative;
-}
+        .carousel-track {
+            flex-shrink: 0;
+            height: 200px;
+            display: flex;
+            width: calc(300px * 24);
+            animation: scroll 240s linear infinite;
+            margin: 0;
+            padding: 0;
+        }
 
-.carousel-track {
-    flex-shrink: 0;
-    height: 200px;
-    display: flex;
-    width: calc(300px * 24);
-    animation: scroll 240s linear infinite;
-    margin: 0;
-    padding: 0;
-}
+        .carousel-track img {
+            flex-shrink: 0;
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+        }
 
-.carousel-track img {
-    flex-shrink: 0;
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-}
+        @media (max-width: 768px) {
+            header, nav, .section {
+                flex-direction: column;
+            }
 
-@media (max-width: 768px) { 
-    header, nav, .section { 
-        flex-direction: column; 
-    }
-    .carousel img {
-        width: 100px;
-        height: auto;
-     }
-   }
+            .carousel img {
+                width: 100px;
+                height: auto;
+            }
+        }
 
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-7200px);
-    }
- }
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-7200px);
+            }
+        }
 
         h1 {
             margin: 0;
@@ -233,10 +228,10 @@
             padding: 20px;
             width: 100%;
             background-color: #fff;
-            border: 2px solid #2c3e50; 
-            padding-left: 15px; 
-            border-radius: 10px; 
-            background-color: #f7f9fc; 
+            border: 2px solid #2c3e50;
+            padding-left: 15px;
+            border-radius: 10px;
+            background-color: #f7f9fc;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
@@ -245,14 +240,13 @@
         #skills-section h2,
         #certificates-section h2,
         #projects-section h2 {
-            color: #2c3e50; /* Couleur du titre */ 
-            font-family: 'Georgia', serif; /* Police élégante */ 
-            font-size: 1.8em; /* Taille de police augmentée */ 
-            border-bottom: 2px solid #2c3e50; /* Ligne en dessous du titre */ 
-            padding-bottom: 5px; 
+            color: #2c3e50;
+            font-family: 'Georgia', serif;
+            font-size: 1.8em;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 5px;
             margin-bottom: 15px;
         }
-            
 
         .job,
         .education-item {
@@ -284,99 +278,40 @@
 
         p {
             line-height: 1.0;
-            margin-top: 10px; 
-            margin-bottom: 10px; 
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
 
-        h3 { 
-            margin: 0 0 50px 0; 
+        h3 {
+            margin: 0 0 50px 0;
             padding: 10px;
             border: none;
-            width: auto; 
-            text-align: left; 
+            width: auto;
+            text-align: left;
             border-radius: 5px;
             font-weight: bold;
             color: #003366;
         }
 
+        .blinking-text {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            text-align: center;
+            margin: 20px 0;
+            animation: blinker 1.5s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-        // Gestion des en-têtes de section
-        const navLinks = document.querySelectorAll('nav a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function (event) {
-                event.preventDefault();
-                const targetId = this.getAttribute('href').substring(1)
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    const content = targetSection.querySelector('.section-content');
-                    if (content) {
-                        content.classList.toggle('open');
-                    }
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
+</head>
 
-        // Gestion des liens de navigation
-        const navLinks = document.querySelectorAll('nav a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function (event) {
-                event.preventDefault();
-                const targetId = this.getAttribute('href').substring(1); // Suppression de '-section'
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    const content = targetSection.querySelector('.section-content');
-                    if (content) {
-                        content.classList.toggle('open');
-                    }
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Soumission du formulaire
-        document.getElementById('cvForm').addEventListener('submit', function(event) {
-            alert('Formulaire soumis !');
-        });
-    });
-
-    // Fonctions pour ajouter des champs dynamiques
-    function addExperience() {
-        const container = document.getElementById('experiences');
-        const newExperience = document.createElement('div');
-        newExperience.className = 'experience';
-        newExperience.innerHTML = `
-            <label for="experience-title">Titre :</label>
-            <input type="text" name="experience-title[]" required><br><br>
-            <label for="experience">Description :</label>
-            <textarea name="experience[]" required></textarea><br><br>
-        `;
-        container.appendChild(newExperience);
-    }
-
-    // Fonctions similaires pour addFormation, addCompetence, addDiplome, addRealisation
-    // ...
-
-.blinking-text {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #2c3e50;
-    text-align: center;
-    margin: 20px 0;
-    animation: blinker 1.5s linear infinite;
-}        
-@keyframes blinker {
-    50% {
-        opacity: 0;
-    }
-}
-    </style>
-        </head>
-        
-        <body>
-        <header>
+<body>
+    <header>
         <div class="contact-info">
             <p>Si Mohamed M'nari</p>
             <p>Rue des 4 Fondateurs, 34130, Mauguio</p>
@@ -387,7 +322,7 @@
             <h1>Business Strategist</h1>
         </div>
         <a href="images/photo_1.png" data-lightbox="image-1">
-        <img src="images/photo_1.png" alt="Photo de Si Mohamed M'Nari">
+            <img src="images/photo_1.png" alt="Photo de Si Mohamed M'Nari">
         </a>
     </header>
     
@@ -401,11 +336,11 @@
     </nav>
     
     <main>
-    <div class="blinking-text" style="background-color: yellow; color: red; font-size: 1.5em; font-weight: bold; text-align: center; margin: 20px 0; position: relative; z-index: 9999;">
-    <p style="color: red;">Découvrez quelques-unes de mes réalisations exceptionnelles !</p>
-    </div>
-
+        <div class="blinking-text" style="background-color: yellow; color: red; font-size: 1.5em; font-weight: bold; text-align: center; margin: 20px 0; position: relative; z-index: 9999;">
+            <p style="color: red;">Découvrez quelques-unes de mes réalisations exceptionnelles !</p>
+        </div>
         
+           
     <div id="realisation" class="carousel">
         <div class="carousel-track">
             <img src="images/18_LA_PROVIDENCE.jpg" alt="Réalisation 1">
