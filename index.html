@@ -532,7 +532,10 @@
     </main>
 
 
-    <!-- Chatbox -->
+    
+
+
+  <!-- Chatbox -->
 <div class="chatbox" id="chatbox">
     <div class="chatbox-header">
         <h2>Chatbox</h2>
@@ -552,6 +555,11 @@
     const userInput = document.getElementById('user-input');
     const chatboxButton = document.getElementById('chatboxButton');
 
+    // Variables pour suivre la conversation
+    let userName = '';
+    let userCompany = '';
+    let conversationStep = 0;
+
     // Fonction pour afficher/masquer la chatbox
     chatboxButton.addEventListener('click', (event) => {
         event.preventDefault(); // Empêche le comportement par défaut du lien
@@ -562,23 +570,6 @@
             chatbox.style.display = 'none';
         }
     });
-
-    // Liste étendue des mots-clés et réponses associées
-    const keywords = {
-        "expérience": `J'ai une vaste expérience en développement commercial, notamment chez Unik Concept où j'ai géré des projets de prospection foncière et de vente immobilière. Si vous avez besoin de plus de détails, n'hésitez pas à demander !`,
-        "compétences": `Mes compétences clés incluent l'analyse de marché, la gestion des données, la négociation, le développement de stratégies, la formation d'équipes, et la transformation digitale. Si vous avez besoin de plus de détails, n'hésitez pas à demander !`,
-        "projets": `Oui, j'ai travaillé sur plusieurs projets réussis, notamment chez Unik Concept où j'ai dirigé des équipes dans la réalisation de projets immobiliers majeurs. Si vous souhaitez des détails spécifiques, n'hésitez pas à demander !`,
-        "formation": `En plus de mon expérience professionnelle, je me suis récemment formé en Software Engineering et Data Science à distance avec l'École des Mines PSL et ECE Tech (Paris) via DataScientest. J'ai acquis des compétences en HTML, CSS, JavaScript, React, SQL, GitHub, et Machine Learning, enrichissant ainsi mon profil.`,
-        "responsabilités": `Le poste implique des responsabilités telles que... [détails]`,
-        "défis": `Les principaux défis auxquels l'équipe est actuellement confrontée sont... [détails]`,
-        "culture": `La culture de notre entreprise est centrée sur... [détails]`,
-        "opportunités": `Nous offrons plusieurs opportunités de développement professionnel, y compris... [détails]`,
-        "succès": `Le succès dans ce rôle est mesuré par... [détails]`,
-        "équipe": `L'équipe avec laquelle vous travaillerez est composée de... [détails]`,
-        "recrutement": `Les prochaines étapes du processus de recrutement sont... [détails]`,
-        "initiatives": `Actuellement, les projets ou initiatives les plus importants sur lesquels nous travaillons sont... [détails]`,
-        "équilibre": `Nous soutenons l'équilibre entre vie professionnelle et personnelle par... [détails]`
-    };
 
     function sendMessage() {
         const userMessage = userInput.value.trim().toLowerCase();
@@ -596,19 +587,73 @@
         botMessageElement.classList.add('message', 'bot-message');
         let botResponse = 'Je suis désolé, je ne comprends pas votre question. Pouvez-vous la reformuler ou poser une autre question ?';
 
-        // Analyser le message de l'utilisateur et fournir une réponse appropriée
-        for (const [keyword, response] of Object.entries(keywords)) {
-            if (userMessage.includes(keyword)) {
-                botResponse = response;
-                break;
+        // Gestion des étapes de la conversation
+        if (conversationStep === 0 && (userMessage.includes('bonjour') || userMessage.includes('salut') || userMessage.includes('bonsoir'))) {
+            botResponse = 'Bonjour et bienvenue sur mon site interactif ! Quel est votre nom et le nom de votre société ?';
+            conversationStep = 1;
+        } else if (conversationStep === 1) {
+            const parts = userMessage.split(' ');
+            if (parts.length >= 2) {
+                userName = parts[0];
+                userCompany = parts.slice(1).join(' ');
+                botResponse = `Enchanté ${userName} de la société ${userCompany}. Moi, je suis Si Mohamed M'Nari. Avez-vous eu le temps de regarder mon site interactif regroupant mes expériences, mes réalisations, et mes formations ? Avez-vous des questions ?`;
+                conversationStep = 2;
+            } else {
+                botResponse = 'Pourriez-vous préciser votre nom et le nom de votre société ?';
+            }
+        } else if (conversationStep === 2) {
+            // Analyser le message de l'utilisateur et fournir une réponse appropriée
+            const keywords = {
+                "expérience": `J'ai une vaste expérience en développement commercial, notamment chez Unik Concept où j'ai géré des projets de prospection foncière et de vente immobilière. Si vous avez besoin de plus de détails, n'hésitez pas à demander !`,
+                "compétences": `Mes compétences clés incluent l'analyse de marché, la gestion des données, la négociation, le développement de stratégies, la formation d'équipes, et la transformation digitale. Si vous avez besoin de plus de détails, n'hésitez pas à demander !`,
+                "projets": `Oui, j'ai travaillé sur plusieurs projets réussis, notamment chez Unik Concept où j'ai dirigé des équipes dans la réalisation de projets immobiliers majeurs. Si vous souhaitez des détails spécifiques, n'hésitez pas à demander !`,
+                "formation": `En plus de mon expérience professionnelle, je me suis récemment formé en Software Engineering et Data Science à distance avec l'École des Mines PSL et ECE Tech (Paris) via DataScientest. J'ai acquis des compétences en HTML, CSS, JavaScript, React, SQL, GitHub, et Machine Learning.`,
+                "responsabilités": `Le poste implique des responsabilités telles que la prospection de nouveaux clients, la gestion des relations client, la négociation de contrats, et la mise en œuvre de stratégies de vente efficaces.`,
+                "défis": `Les principaux défis auxquels l'équipe est actuellement confrontée sont d'intégrer des solutions innovantes pour améliorer les processus commerciaux et d'augmenter les parts de marché dans un environnement concurrentiel.`,
+                "culture": `La culture de notre entreprise est centrée sur l'innovation, la collaboration, et le développement personnel. Nous valorisons la diversité et encourageons la créativité et l'initiative.`,
+                "opportunités": `Nous offrons plusieurs opportunités de développement professionnel, y compris des formations internes, des programmes de mentorat, et des possibilités de participation à des conférences et séminaires.`,
+                "succès": `Le succès dans ce rôle est mesuré par l'atteinte des objectifs de vente, la satisfaction des clients, et la contribution à l'amélioration continue des processus commerciaux.`,
+                "équipe": `L'équipe avec laquelle vous travaillerez est composée de professionnels expérimentés dans divers domaines, y compris le développement commercial, le marketing, et la gestion de projet.`,
+                "recrutement": `Les prochaines étapes du processus de recrutement incluent des entretiens avec les membres de l'équipe, une évaluation technique, et une discussion sur les attentes et les opportunités de croissance au sein de l'entreprise.`,
+                "initiatives": `Actuellement, les projets ou initiatives les plus importants sur lesquels nous travaillons incluent le développement de nouveaux produits et services, l'expansion sur de nouveaux marchés, et l'amélioration des technologies existantes.`,
+                "équilibre": `Nous soutenons l'équilibre entre vie professionnelle et personnelle par des horaires de travail flexibles, des politiques de télétravail, et des initiatives de bien-être pour nos employés.`
+            };
+
+            let keywordFound = false;
+            for (const [keyword, response] of Object.entries(keywords)) {
+                if (userMessage.includes(keyword)) {
+                    botResponse = response;
+                    keywordFound = true;
+                    break;
+                }
+            }
+
+            if (!keywordFound && userMessage.includes('connaissez-vous notre société')) {
+                const société = userMessage.split('connaissez-vous notre société ')[1];
+                fetch(`https://www.googleapis.com/customsearch/v1?q=${société}&key=AIzaSyAIr5DylDceSfPg-VCHAxPY8WFucX2vtCc`)
+                    .then(response => response.json())
+                    .then(data => {
+                        botResponse = `Oui, je connais bien ${société}. Voici quelques liens pertinents que j'ai trouvés sur internet :`;
+                        data.items.forEach(item => {
+                            botResponse += `\n- [${item.title}](${item.link})`;
+                        });
+                        botMessageElement.textContent = botResponse;
+                        chatboxBody.appendChild(botMessageElement);
+                        chatboxBody.scrollTop = chatboxBody.scrollHeight;
+                    })
+                    .catch(error => {
+                        botResponse = `Je n'ai pas trouvé d'informations sur ${société}. Pouvez-vous vérifier le nom de la société ou fournir plus de détails ?`;
+                        botMessageElement.textContent = botResponse;
+                        chatboxBody.appendChild(botMessageElement);
+                        chatboxBody.scrollTop = chatboxBody.scrollHeight;
+                    });
+            } else {
+                botMessageElement.textContent = botResponse;
+                chatboxBody.appendChild(botMessageElement);
+                chatboxBody.scrollTop = chatboxBody.scrollHeight;
             }
         }
-
-        botMessageElement.textContent = botResponse;
-        chatboxBody.appendChild(botMessageElement);
-        chatboxBody.scrollTop = chatboxBody.scrollHeight;
     }
-
 
     </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
