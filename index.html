@@ -531,11 +531,7 @@
         </section>   
     </main>
 
-
-    
-
-
-  <!-- Chatbox -->
+    <!-- Chatbox -->
 <div class="chatbox" id="chatbox">
     <div class="chatbox-header">
         <h2>Chatbox</h2>
@@ -630,9 +626,14 @@
 
             if (!keywordFound && userMessage.includes('connaissez-vous notre société')) {
                 const société = userMessage.split('connaissez-vous notre société ')[1];
-                fetch(`https://www.googleapis.com/customsearch/v1?q=${société}&key=AIzaSyAIr5DylDceSfPg-VCHAxPY8WFucX2vtCc`)
-                    .then(response => response.json())
+                console.log(`Recherchant des informations pour la société: ${société}`); // Ajouter un log de debug
+                fetch(`https://www.googleapis.com/customsearch/v1?q=${société}&key=AIzaSyAIr5DylDceSfPg-VCHAxPY8WFucX2vtCc&cx=YOUR_CX_CODE`)
+                    .then(response => {
+                        console.log(`Statut de la réponse: ${response.status}`); // Ajouter un log de debug
+                        return response.json();
+                    })
                     .then(data => {
+                        console.log(`Données reçues: ${JSON.stringify(data)}`); // Ajouter un log de debug
                         botResponse = `Oui, je connais bien ${société}. Voici quelques liens pertinents que j'ai trouvés sur internet :`;
                         data.items.forEach(item => {
                             botResponse += `\n- [${item.title}](${item.link})`;
@@ -642,6 +643,7 @@
                         chatboxBody.scrollTop = chatboxBody.scrollHeight;
                     })
                     .catch(error => {
+                        console.error(`Erreur lors de la recherche: ${error}`); // Ajouter un log de debug
                         botResponse = `Je n'ai pas trouvé d'informations sur ${société}. Pouvez-vous vérifier le nom de la société ou fournir plus de détails ?`;
                         botMessageElement.textContent = botResponse;
                         chatboxBody.appendChild(botMessageElement);
@@ -655,6 +657,8 @@
         }
     }
 
+
+    
     </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js">
