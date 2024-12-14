@@ -396,21 +396,20 @@
     </a>
 </header>
     
-    <nav aria-label="Navigation principale">
-        <a href="#experience">Expérience</a>
-        <a href="#formation">Formation</a>
-        <a href="#competence">Compétence</a>
-        <a href="#diplome">Diplôme</a>
-        <a href="#realisation">Réalisation</a>
-        <a href="#chatbox" class="chatbox-button" id="chatboxButton">Chat-Box</a>
-    </nav>
+<nav aria-label="Navigation principale">
+    <a href="#experience">Expérience</a>
+    <a href="#formation">Formation</a>
+    <a href="#competence">Compétence</a>
+    <a href="#diplome">Diplôme</a>
+    <a href="#realisation">Réalisation</a>
+    <a href="#chatbox" class="chatbox-button" id="chatboxButton">Chat-Box</a>
+</nav>
     
-    <main>
-        <div class="blinking-text" style="background-color: yellow; color: red; font-size: 1.5em; font-weight: bold; text-align: center; margin: 20px 0; position: relative; z-index: 9999;">
-            <p style="color: red;">Découvrez quelques-unes de mes réalisations exceptionnelles !</p>
-        </div>
-        
-           
+<main>
+    <div class="blinking-text" style="background-color: yellow; color: red; font-size: 1.5em; font-weight: bold; text-align: center; margin: 20px 0; position: relative; z-index: 9999;">
+        <p style="color: red;">Découvrez quelques-unes de mes réalisations exceptionnelles !</p>
+    </div>
+              
     <div id="realisation" class="carousel">
         <div class="carousel-track">
             <img src="images/18_LA_PROVIDENCE.jpg" alt="Réalisation 1">
@@ -440,7 +439,7 @@
         </div> 
     </div>
 
-    <section id="experience" class="section">
+    <section id="experience-section" class="section">
         <div class="section-header">Expérience Professionnelle</div>
         <div class="section-content"> 
             <h3>Janv. 2024 à aujourd’hui - Apprenant à distance en Software Engineering et Data Science, École des Mines PSL & ECE Tech (Paris) avec DataScientest</h3> 
@@ -499,14 +498,11 @@
             <p><strong>Accompagnement et formation</strong> aux méthodes de vente.</p>
             <p><strong>Fidélisation</strong> de la clientèle.</p>
 
-            <h3>Juin 1999 - Septembre 2003 - Représentant technico-commercial et Directeur des ventes KparK Montpellier.</h3>
-                    
-
-                        
+            <h3>Juin 1999 - Septembre 2003 - Représentant technico-commercial et Directeur des ventes KparK Montpellier.</h3>             
         </div> 
     </section>
 
-        <section id="formation" class="section">
+        <section id="formation-section" class="section">
             <div class="section-header">Formation</div> 
             <div class="section-content"> 
                 <!-- Contenu de la formation --> 
@@ -514,7 +510,7 @@
             </div> 
         </section>
 
-        <section id="competence" class="section">
+        <section id="competence-section" class="section">
             <div class="section-header">Compétence</div> 
             <div class="section-content"> 
                 <!-- Contenu des compétences --> 
@@ -522,7 +518,7 @@
             </div> 
         </section>
         
-        <section id="diplome" class="section">
+        <section id="diplome-section" class="section">
             <div class="section-header">Diplôme</div> 
             <div class="section-content"> 
                 <!-- Contenu des diplômes --> 
@@ -533,9 +529,9 @@
 
 
    <!-- Chatbox -->
-<div class="chatbox" id="chatbox">
-    <div class="chatbox-header">
-        <h2>Chatbox</h2>
+   <div class="chatbox" id="chatbox">
+       <div class="chatbox-header">
+           <h2>Chatbox</h2>
     </div>
     <div class="chatbox-body" id="chatbox-body">
         <div class="message bot-message">Bonjour et bienvenue ! Explorez mon parcours et posez toutes vos questions. Je suis là pour vous aider.</div>
@@ -568,9 +564,11 @@ function toggleChatbox() {
 }
 
 // Ajouter l'événement pour le bouton de la chatbox
-chatboxButton.addEventListener('click', (event) => {
-    event.preventDefault(); // Empêche le comportement par défaut du lien
-    toggleChatbox();
+document.addEventListener('DOMContentLoaded', (event) => {
+    chatboxButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Empêche le comportement par défaut du lien
+        toggleChatbox();
+    });
 });
 
 function sendMessage() {
@@ -616,10 +614,10 @@ function sendMessage() {
     chatboxBody.appendChild(botMessageElement);
     chatboxBody.scrollTop = chatboxBody.scrollHeight;
 }
-
 </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
 </body>
 </html>
     
