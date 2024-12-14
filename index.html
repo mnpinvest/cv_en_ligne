@@ -531,6 +531,7 @@
         </section>   
     </main>
 
+
     <!-- Chatbox -->
 <div class="chatbox" id="chatbox">
     <div class="chatbox-header">
@@ -545,9 +546,13 @@
     </div>
 </div>
 
+<!-- Script de Google Custom Search -->
+<script async src="https://cse.google.com/cse.js?cx=80dde777896dd413f"></script>
+<div class="gcse-search"></div>
+
 <!-- Script de la chatbox -->
 <script>
-  const chatboxBody = document.getElementById('chatbox-body');
+const chatboxBody = document.getElementById('chatbox-body');
 const userInput = document.getElementById('user-input');
 const chatboxButton = document.getElementById('chatboxButton');
 
@@ -627,7 +632,7 @@ function sendMessage() {
         if (!keywordFound && userMessage.includes('connaissez-vous notre société')) {
             const société = userMessage.split('connaissez-vous notre société ')[1];
             console.log(`Recherchant des informations pour la société: ${société}`); // Ajouter un log de debug
-            fetch(`https://www.googleapis.com/customsearch/v1?q=${société}&key=AIzaSyAIr5DylDceSfPg-VCHAxPY8WFucX2vtCc&cx=AIzaSyAIr5DylDceSfPg-VCHAxPY8WFucX2vtCc`)
+            fetch(`https://www.googleapis.com/customsearch/v1?q=${société}&key=AIzaSyAIr5DylDceSfPg-VCHAxPY8WFucX2vtCc&cx=80dde777896dd413f`)
                 .then(response => {
                     console.log(`Statut de la réponse: ${response.status}`); // Ajouter un log de debug
                     return response.json();
@@ -656,7 +661,7 @@ function sendMessage() {
         }
     }
 }
- 
+
 
     
     </script>
