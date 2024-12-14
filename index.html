@@ -402,7 +402,7 @@
     <a href="#competence-section">Compétence</a>
     <a href="#diplome-section">Diplôme</a>
     <a href="#projects-section">Réalisation</a>
-    <!--<a href="#chatbox" class="chatbox-button" id="chatboxButton">Chat-Box</a>-->
+    <a href="#chatbox" class="chatbox-button" id="chatboxButton">Chat-Box</a>
 </nav>
 
     
@@ -530,10 +530,10 @@
 
 
 
-   <!-- Chatbox -->
-   <div class="chatbox" id="chatbox">
-       <div class="chatbox-header">
-           <h2>Chatbox</h2>
+ <!-- Chatbox -->
+<div class="chatbox" id="chatbox">
+    <div class="chatbox-header">
+        <h2>Chatbox</h2>
     </div>
     <div class="chatbox-body" id="chatbox-body">
         <div class="message bot-message">Bonjour et bienvenue ! Explorez mon parcours et posez toutes vos questions. Je suis là pour vous aider.</div>
@@ -567,13 +567,14 @@ function toggleChatbox() {
 
 // Ajouter l'événement pour le bouton de la chatbox
 document.addEventListener('DOMContentLoaded', (event) => {
-    chatboxButton.addEventListener('click', (event) => {
-        event.preventDefault(); // Empêche le comportement par défaut du lien
-        toggleChatbox();
-    });
+    if (chatboxButton) {
+        chatboxButton.addEventListener('click', (event) => {
+            event.preventDefault(); // Empêche le comportement par défaut du lien
+            toggleChatbox();
+        });
+    }
 });
 
-<script>
 function sendMessage() {
     const userMessage = userInput.value.trim().toLowerCase();
     if (userMessage === '') return;
@@ -642,6 +643,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
 </body>
 </html>
+
 
 
         
