@@ -307,6 +307,73 @@
                 opacity: 0;
             }
         }
+
+        /* Chatbox */
+.chatbox {
+    display: none; /* Cacher la chatbox par défaut */
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    width: 300px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.chatbox-header {
+    background: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.chatbox-body {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.chatbox-footer {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.chatbox-footer input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.chatbox-footer button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.message {
+    margin: 10px 0;
+}
+
+.bot-message {
+    background: #e2e2e2;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.user-message {
+    background: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: right;
+}
+
     </style>
 </head>
 
@@ -335,7 +402,7 @@
         <a href="#competence">Compétence</a>
         <a href="#diplome">Diplôme</a>
         <a href="#realisation">Réalisation</a>
-        <a href="#create-cv">Créer CV</a>
+        <a href="#chatbox" class="chatbox-button" id="chatboxButton">Chat-Box</a>
     </nav>
     
     <main>
@@ -461,194 +528,79 @@
                 <!-- Contenu des diplômes --> 
                 <p>Contenu des diplômes ici...</p> 
             </div> 
-        </section>
-
-        <section id="create-cv" class="section"> 
-            <div class="section-header">Créer mon CV</div> 
-            <div class="section-content">
-                <form id="cvForm" action="create-user-cv.php" method="POST" enctype="multipart/form-data" onsubmit="alert('Formulaire soumis !');"> 
-                    <label for="nom">Nom:</label> 
-                    <input type="text" id="nom" name="nom" required><br><br>
-        
-                    <label for="prenom">Prénom:</label> 
-                    <input type="text" id="prenom" name="prenom" required><br><br>
-        
-                    <label for="adresse">Adresse:</label> 
-                    <input type="text" id="adresse" name="adresse" required><br><br>
-        
-                    <label for="email">Email:</label> 
-                    <input type="email" id="email" name="email" required><br><br>
-        
-                    <label for="telephone">Téléphone:</label> 
-                    <input type="tel" id="telephone" name="telephone" required><br><br>
-        
-                    <label for="photo">Photo de profil:</label> 
-                    <input type="file" id="photo" name="photo" accept="image/*"><br><br>
-        
-                    <label for="description">Description:</label> 
-                    <textarea id="description" name="description" required></textarea><br><br>
-        
-                    <h3>Expérience Professionnelle</h3>
-                    <div id="experiences"> 
-                        <div class="experience"> 
-                            <label for="experience-title">Titre :</label> 
-                            <input type="text" name="experience-title[]" required><br><br> 
-                            <label for="experience">Description :</label> 
-                            <textarea name="experience[]" required></textarea><br><br> 
-                        </div> 
-                    </div> 
-                    <button type="button" onclick="addExperience()">Ajouter une expérience</button><br><br>
-        
-                    <h3>Formation</h3> 
-                    <div id="formations"> 
-                        <div class="formation"> 
-                            <label for="formation-title">Titre :</label> 
-                            <input type="text" name="formation-title[]" required><br><br> 
-                            <label for="formation">Description :</label> 
-                            <textarea name="formation[]" required></textarea><br><br> 
-                        </div> 
-                    </div> 
-                    <button type="button" onclick="addFormation()">Ajouter une formation</button><br><br>
-        
-                    <h3>Compétences</h3> 
-                    <div id="competences"> 
-                        <div class="competence"> 
-                            <label for="competence-title">Titre :</label> 
-                            <input type="text" name="competence-title[]" required><br><br> 
-                            <label for="competence">Description :</label> 
-                            <textarea name="competence[]" required></textarea><br><br> 
-                        </div> 
-                    </div> 
-                    <button type="button" onclick="addCompetence()">Ajouter une compétence</button><br><br>
-        
-                    <h3>Diplômes</h3> 
-                    <div id="diplomes"> 
-                        <div class="diplome"> 
-                            <label for="diplome-title">Titre :</label> 
-                            <input type="text" name="diplome-title[]" required><br><br> 
-                            <label for="diplome">Fichier :</label> 
-                            <input type="file" name="diplome[]" accept=".pdf, image/*"><br><br> 
-                        </div> 
-                    </div> 
-                    <button type="button" onclick="addDiplome()">Ajouter un diplôme</button><br><br>
-        
-                    <h3>Réalisations</h3> 
-                    <div id="realisations"> 
-                        <div class="realisation"> 
-                            <label for="realisation-title">Titre :</label> 
-                            <input type="text" name="realisation-title[]" required><br><br> 
-                            <label for="realisation">Images :</label> 
-                            <input type="file" name="realisation[]" accept="image/*" multiple><br><br> 
-                        </div> 
-                    </div> 
-                    <button type="button" onclick="addRealisation()">Ajouter une réalisation</button><br><br>
-        
-                    <button type="submit">Créer mon site CV</button>
-                </form>
-            </div> 
-        </section> 
+        </section>   
     </main>
-    
 
 
+
+
+
     
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Gestion des en-têtes de section
-            const headers = document.querySelectorAll('.section-header');
-            headers.forEach(header => {
-                header.addEventListener('click', function () {
-                    const content = this.nextElementSibling;
-                    content.classList.toggle('open');
-                });
-            });
-    
-            // Gestion des liens de navigation
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetSection = document.getElementById(targetId);
-                    const content = targetSection.querySelector('.section-content');
-                    content.classList.toggle('open');
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-    
-            // Soumission du formulaire
-            document.getElementById('cvForm').addEventListener('submit', function(event) {
-                // Commentaire ou suppression de preventDefault pour permettre la soumission normale
-                // event.preventDefault(); // Cette ligne est commentée ou supprimée
-                alert('Formulaire soumis !');
-            });
-        });
-    
-        // Fonctions pour ajouter des champs dynamiques
-        function addExperience() {
-            const container = document.getElementById('experiences');
-            const newExperience = document.createElement('div');
-            newExperience.className = 'experience';
-            newExperience.innerHTML = `
-                <label for="experience-title">Titre :</label>
-                <input type="text" name="experience-title[]" required><br><br>
-                <label for="experience">Description :</label>
-                <textarea name="experience[]" required></textarea><br><br>
-            `;
-            container.appendChild(newExperience);
+    <!-- Chatbox -->
+<div class="chatbox" id="chatbox">
+    <div class="chatbox-header">
+        <h2>Chatbox</h2>
+    </div>
+    <div class="chatbox-body" id="chatbox-body">
+        <div class="message bot-message">Bonjour et bienvenue ! Explorez mon parcours et posez toutes vos questions. Je suis là pour vous aider.</div>
+    </div>
+    <div class="chatbox-footer">
+        <input type="text" id="user-input" placeholder="Tapez votre message ici...">
+        <button onclick="sendMessage()">Envoyer</button>
+    </div>
+</div>
+
+<!-- Script de la chatbox -->
+<script>
+    const chatboxBody = document.getElementById('chatbox-body');
+    const userInput = document.getElementById('user-input');
+    const chatboxButton = document.getElementById('chatboxButton');
+
+    // Fonction pour afficher/masquer la chatbox
+    chatboxButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Empêche le comportement par défaut du lien
+        const chatbox = document.getElementById('chatbox');
+        if (chatbox.style.display === 'none' || !chatbox.style.display) {
+            chatbox.style.display = 'block';
+        } else {
+            chatbox.style.display = 'none';
         }
-    
-        function addFormation() {
-            const container = document.getElementById('formations');
-            const newFormation = document.createElement('div');
-            newFormation.className = 'formation';
-            newFormation.innerHTML = `
-                <label for="formation-title">Titre :</label>
-                <input type="text" name="formation-title[]" required><br><br>
-                <label for="formation">Description :</label>
-                <textarea name="formation[]" required></textarea><br><br>
-            `;
-            container.appendChild(newFormation);
+    });
+
+    function sendMessage() {
+        const userMessage = userInput.value.trim();
+        if (userMessage === '') return;
+
+        // Afficher le message de l'utilisateur
+        const userMessageElement = document.createElement('div');
+        userMessageElement.classList.add('message', 'user-message');
+        userMessageElement.textContent = userMessage;
+        chatboxBody.appendChild(userMessageElement);
+        userInput.value = '';
+
+        // Réponse du bot
+        const botMessageElement = document.createElement('div');
+        botMessageElement.classList.add('message', 'bot-message');
+        let botResponse = '';
+
+        // Analyser le message de l'utilisateur et fournir une réponse appropriée
+        if (userMessage.includes('expérience en développement commercial')) {
+            botResponse = `J'ai une vaste expérience en développement commercial. Par exemple, chez Unik Concept, j'ai analysé les PLU pour créer une base de données à prospecter, mis en place un système de gestion des données foncières, et négocié des contrats de réservation. Si vous avez besoin de plus de détails, n'hésitez pas à demander !`;
+        } else if (userMessage.includes('compétences clés en stratégie d\'affaires')) {
+            botResponse = `Mes compétences clés incluent l'analyse de marché, la gestion des données, la négociation, le développement de stratégies, la formation d'équipes, et la transformation digitale. Si vous avez besoin de plus de détails, n'hésitez pas à demander !`;
+        } else if (userMessage.includes('projets réussis')) {
+            botResponse = `Oui, j'ai travaillé sur plusieurs projets réussis, notamment chez Unik Concept où j'ai dirigé des équipes dans la réalisation de projets immobiliers majeurs. Si vous souhaitez des détails spécifiques, n'hésitez pas à demander !`;
+        } else if (userMessage.includes('formation en technologie')) {
+            botResponse = `En plus de mon expérience professionnelle, je me suis récemment formé en Software Engineering et Data Science à distance avec l'École des Mines PSL et ECE Tech (Paris) via DataScientest. J'ai acquis des compétences en HTML, CSS, JavaScript, React, SQL, GitHub, et Machine Learning, enrichissant ainsi mon profil.`;
+        } else {
+            botResponse = `Je suis désolé, je ne comprends pas votre question. Pouvez-vous la reformuler ou poser une autre question ?`;
         }
-    
-        function addCompetence() {
-            const container = document.getElementById('competences');
-            const newCompetence = document.createElement('div');
-            newCompetence.className = 'competence';
-            newCompetence.innerHTML = `
-                <label for="competence-title">Titre :</label>
-                <input type="text" name="competence-title[]" required><br><br>
-                <label for="competence">Description :</label>
-                <textarea name="competence[]" required></textarea><br><br>
-            `;
-            container.appendChild(newCompetence);
-        }
-    
-        function addDiplome() {
-            const container = document.getElementById('diplomes');
-            const newDiplome = document.createElement('div');
-            newDiplome.className = 'diplome';
-            newDiplome.innerHTML = `
-                <label for="diplome-title">Titre :</label>
-                <input type="text" name="diplome-title[]" required><br><br>
-                <label for="diplome">Fichier :</label>
-                <input type="file" name="diplome[]" accept=".pdf, image/*"><br><br>
-            `;
-            container.appendChild(newDiplome);
-        }
-    
-        function addRealisation() {
-            const container = document.getElementById('realisations');
-            const newRealisation = document.createElement('div');
-            newRealisation.className = 'realisation';
-            newRealisation.innerHTML = `
-                <label for="realisation-title">Titre :</label>
-                <input type="text" name="realisation-title[]" required><br><br>
-                <label for="realisation">Images :</label>
-                <input type="file" name="realisation[]" accept="image/*" multiple><br><br>
-            `;
-            container.appendChild(newRealisation);
-        }
+
+        botMessageElement.textContent = botResponse;
+        chatboxBody.appendChild(botMessageElement);
+        chatboxBody.scrollTop = chatboxBody.scrollHeight;
+    }
+
     </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js">
