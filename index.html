@@ -532,10 +532,6 @@
     </main>
 
 
-
-
-
-    
     <!-- Chatbox -->
 <div class="chatbox" id="chatbox">
     <div class="chatbox-header">
@@ -567,8 +563,25 @@
         }
     });
 
+    // Liste des mots-clés et réponses associées
+    const keywords = {
+        "expérience": `J'ai une vaste expérience en développement commercial, notamment chez Unik Concept où j'ai géré des projets de prospection foncière et de vente immobilière. Si vous avez besoin de plus de détails, n'hésitez pas à demander !`,
+        "compétences": `Mes compétences clés incluent l'analyse de marché, la gestion des données, la négociation, le développement de stratégies, la formation d'équipes, et la transformation digitale. Si vous avez besoin de plus de détails, n'hésitez pas à demander !`,
+        "projets": `Oui, j'ai travaillé sur plusieurs projets réussis, notamment chez Unik Concept où j'ai dirigé des équipes dans la réalisation de projets immobiliers majeurs. Si vous souhaitez des détails spécifiques, n'hésitez pas à demander !`,
+        "formation": `En plus de mon expérience professionnelle, je me suis récemment formé en Software Engineering et Data Science à distance avec l'École des Mines PSL et ECE Tech (Paris) via DataScientest. J'ai acquis des compétences en HTML, CSS, JavaScript, React, SQL, GitHub, et Machine Learning, enrichissant ainsi mon profil.`,
+        "responsabilités": `Le poste implique des responsabilités telles que... [détails]`,
+        "défis": `Les principaux défis auxquels l'équipe est actuellement confrontée sont... [détails]`,
+        "culture": `La culture de notre entreprise est centrée sur... [détails]`,
+        "opportunités": `Nous offrons plusieurs opportunités de développement professionnel, y compris... [détails]`,
+        "succès": `Le succès dans ce rôle est mesuré par... [détails]`,
+        "équipe": `L'équipe avec laquelle vous travaillerez est composée de... [détails]`,
+        "recrutement": `Les prochaines étapes du processus de recrutement sont... [détails]`,
+        "initiatives": `Actuellement, les projets ou initiatives les plus importants sur lesquels nous travaillons sont... [détails]`,
+        "équilibre": `Nous soutenons l'équilibre entre vie professionnelle et personnelle par... [détails]`
+    };
+
     function sendMessage() {
-        const userMessage = userInput.value.trim();
+        const userMessage = userInput.value.trim().toLowerCase();
         if (userMessage === '') return;
 
         // Afficher le message de l'utilisateur
@@ -581,25 +594,21 @@
         // Réponse du bot
         const botMessageElement = document.createElement('div');
         botMessageElement.classList.add('message', 'bot-message');
-        let botResponse = '';
+        let botResponse = 'Je suis désolé, je ne comprends pas votre question. Pouvez-vous la reformuler ou poser une autre question ?';
 
         // Analyser le message de l'utilisateur et fournir une réponse appropriée
-        if (userMessage.includes('expérience en développement commercial')) {
-            botResponse = `J'ai une vaste expérience en développement commercial. Par exemple, chez Unik Concept, j'ai analysé les PLU pour créer une base de données à prospecter, mis en place un système de gestion des données foncières, et négocié des contrats de réservation. Si vous avez besoin de plus de détails, n'hésitez pas à demander !`;
-        } else if (userMessage.includes('compétences clés en stratégie d\'affaires')) {
-            botResponse = `Mes compétences clés incluent l'analyse de marché, la gestion des données, la négociation, le développement de stratégies, la formation d'équipes, et la transformation digitale. Si vous avez besoin de plus de détails, n'hésitez pas à demander !`;
-        } else if (userMessage.includes('projets réussis')) {
-            botResponse = `Oui, j'ai travaillé sur plusieurs projets réussis, notamment chez Unik Concept où j'ai dirigé des équipes dans la réalisation de projets immobiliers majeurs. Si vous souhaitez des détails spécifiques, n'hésitez pas à demander !`;
-        } else if (userMessage.includes('formation en technologie')) {
-            botResponse = `En plus de mon expérience professionnelle, je me suis récemment formé en Software Engineering et Data Science à distance avec l'École des Mines PSL et ECE Tech (Paris) via DataScientest. J'ai acquis des compétences en HTML, CSS, JavaScript, React, SQL, GitHub, et Machine Learning, enrichissant ainsi mon profil.`;
-        } else {
-            botResponse = `Je suis désolé, je ne comprends pas votre question. Pouvez-vous la reformuler ou poser une autre question ?`;
+        for (const [keyword, response] of Object.entries(keywords)) {
+            if (userMessage.includes(keyword)) {
+                botResponse = response;
+                break;
+            }
         }
 
         botMessageElement.textContent = botResponse;
         chatboxBody.appendChild(botMessageElement);
         chatboxBody.scrollTop = chatboxBody.scrollHeight;
     }
+
 
     </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
