@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV de Si Mohamed M'Nari</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
         * {
             margin: 0;
@@ -293,14 +294,20 @@
             color: #003366;
         }
 
-        .blinking-text {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #2c3e50;
-            text-align: center;
-            margin: 20px 0;
-            animation: blinker 1.5s linear infinite;
-        }
+      .blinking-text {
+          background-color: yellow;
+          color: red;
+          font-size: 1.5em;
+          font-weight: bold;
+          text-align: center;
+          margin: 20px 0;
+          position: relative;
+          z-index: 9999;
+      }
+
+     .blinking-text p {
+         color: red;
+     }
 
         @keyframes blinker {
             50% {
