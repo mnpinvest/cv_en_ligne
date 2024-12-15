@@ -12,6 +12,12 @@ cv_en_ligne/
 ├── images/
 │   └── (images réalisation)
 ├── uploads/
+│   ├── diplômes/
+│   │   └── (images des diplômes)
+│   ├── photos/
+│   │   └── (images des photos)
+│   └── réalisation/
+│       └── (images des réalisations)
 ├── chatbox.js
 ├── navigation.js
 ├── create-user-cv.php
