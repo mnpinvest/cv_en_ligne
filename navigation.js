@@ -5,13 +5,13 @@ document.addEventListener('DOMContentLoaded', function () {
     links.forEach(link => {
         link.addEventListener('click', function (event) {
             event.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.querySelector(`#${targetId} .section-content`);
+            const targetId = this.getAttribute('href').substring(1); // Récupérer l'ID cible sans le #
+            const targetElement = document.getElementById(targetId); // Trouver l'élément correspondant
 
             if (targetElement) {
                 // Masquer toutes les sections
                 sections.forEach(section => {
-                    section.querySelector('.section-content').classList.remove('open');
+                    section.classList.remove('open');
                 });
 
                 // Afficher la section cible
