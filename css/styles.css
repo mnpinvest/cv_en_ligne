@@ -288,9 +288,10 @@ h3 {
     z-index: 9999;
 }
 
-.blinking-text p {
+.highlighted-message {
     color: red;
 }
+
 
 @keyframes blinker {
     50% {
