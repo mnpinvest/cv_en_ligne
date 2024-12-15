@@ -1,20 +1,19 @@
-# Structure du Projet cv_en_ligne
-
 cv_en_ligne/
 ├── css/
-│   └── (Le code CSS est dans le script html)
+│   └── styles.css
+├── favicon_io/
+│   ├── android-chrome-192x192.png
+│   ├── android-chrome-512x512.png
+│   ├── apple-touch-icon.png
+│   ├── favicon-16x16.png
+│   ├── favicon-32x32.png
+│   ├── favicon.ico
+│   └── site.webmanifest
 ├── images/
 │   └── (images réalisation)
-├── téléchargements/
-├── diplômes/
-├── photos/
-├── réalisation/
-├── favicon.ico
-├── apple-touch-icon.png
-├── favicon-32x32.png
-├── favicon-16x16.png
-├── site.webmanifest
-├── styles.css
+├── uploads/
+├── chatbox.js
+├── navigation.js
 ├── create-user-cv.php
 ├── diplomes.php
 ├── index.html
