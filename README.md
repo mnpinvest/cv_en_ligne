@@ -25,4 +25,5 @@ cv_en_ligne/
 ├── index.html
 ├── realisation.php
 ├── user-profile.php
+├── .htaccess
 ├── README.md
