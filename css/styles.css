@@ -212,27 +212,19 @@ section {
     visibility: hidden;
 }
 
-#experience-section,
-#formation-section,
-#competence-section,
-#diplome-section,
-#projects-section {
+/* Sections spécifiques */
+#experience, #formation, #competence, #diplome, #projects {
     margin: 0;
     padding: 20px;
     width: 100%;
-    background-color: #fff;
+    background-color: #f7f9fc;
     border: 2px solid #2c3e50;
     padding-left: 15px;
     border-radius: 10px;
-    background-color: #f7f9fc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#experience-section h2,
-#formation-section h2,
-#competence-section h2,
-#diplome-section h2,
-#projects-section h2 {
+#experience h2, #formation h2, #competence h2, #diplome h2, #projects h2 {
     color: #2c3e50;
     font-family: 'Georgia', serif;
     font-size: 1.8em;
@@ -241,8 +233,7 @@ section {
     margin-bottom: 15px;
 }
 
-.job,
-.education-item {
+.job, .education-item {
     margin-bottom: 15px;
 }
 
@@ -372,4 +363,3 @@ h3 {
     border-radius: 5px;
     text-align: right;
 }
-
