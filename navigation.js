@@ -6,17 +6,19 @@ document.addEventListener('DOMContentLoaded', function () {
         link.addEventListener('click', function (event) {
             event.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
+            const targetElement = document.querySelector(`#${targetId} .section-content`);
 
-            // Masquer toutes les sections
-            sections.forEach(section => {
-                section.querySelector('.section-content').classList.remove('open');
-            });
-
-            // Afficher la section cible
             if (targetElement) {
-                targetElement.querySelector('.section-content').classList.add('open');
+                // Masquer toutes les sections
+                sections.forEach(section => {
+                    section.querySelector('.section-content').classList.remove('open');
+                });
+
+                // Afficher la section cible
+                targetElement.classList.add('open');
                 targetElement.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                console.error('La section cible est introuvable :', targetId);
             }
         });
     });
