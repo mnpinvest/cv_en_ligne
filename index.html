@@ -3,50 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
     <title>CV de Si Mohamed M'Nari</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
     <style>
-
-        *{
-            margin:0;
+        * {
+            margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            background-color: #2c3e50; 
-            font-family: Arial, sans-serif; 
-            line-height: 1.6; 
-            margin: 0; 
+            background-color: #2c3e50;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
             padding: 0;
         }
 
-        main{
+        main {
             padding: 20px;
-            overflow-y:auto;
+            overflow-y: auto;
         }
 
         header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            height: 20vh;
-            margin: 0;
+            align-items: center;
+            height: auto;
             padding: 20px;
-            background-color: #2c3e50; /* Bleu Marine */
+            background-color: #2c3e50;
             color: #fff;
             position: relative;
         }
 
         header img {
             border-radius: 50%;
-            width: 150px;
+            width: 140px;
             height: auto;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
         }
 
         .contact-info {
             text-align: left;
             font-size: 1em;
+            margin-right: 20px;
         }
 
         .contact-info p {
@@ -55,15 +63,13 @@
 
         .title {
             position: absolute;
-            left: 50%;
+            left: calc(50% + 10px);
             transform: translateX(-50%);
-            top: 20px;
+            top: 15px;
             text-align: center;
-        }
-
-        .title h1 {
+            font-size: 0.8em; /* Corrigé de 0,8em */
+            font-weight: bold;
             margin: 0;
-            font-size: 1.5em;
         }
 
         nav {
@@ -74,10 +80,12 @@
             margin: 0;
             display: flex;
             justify-content: center;
-            background-color: #d3d3d3; /* Gris Clair */
+            background-color: #d3d3d3;
             padding: 10px;
             width: 100%;
             margin-bottom: 0;
+            overflow-x: auto;
+            white-space: nowrap;
         }
 
         nav a {
@@ -86,6 +94,7 @@
             margin: 0 10px;
             font-size: 1em;
             font-weight: bold;
+            padding: 10px 15px;
         }
 
         nav a:hover {
@@ -96,104 +105,100 @@
             margin-top: 0;
         }
 
-        .section { 
-            margin:0;
+        .section {
+            margin: 0;
             padding: 0;
         }
 
         .section-header {
-            width: 100%; 
-            margin: 0; 
+            width: 100%;
+            margin: 0;
             display: block;
-            background-color: #2c3e50; 
-            color: #fff; 
-            padding: 10px; 
-            font-size: 24px; 
-            font-weight: bold; 
-            text-align: center; 
-            border: 2px solid #fff; 
-            border-radius: 5px; 
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid #fff;
+            border-radius: 5px;
             cursor: pointer;
         }
 
-        .section + .section { 
+        .section + .section {
             margin-top: -2px;
         }
 
-        
-        /* Styles pour .section-content */
-.section-content { 
-    overflow-y: auto; 
-    max-height: 80vh;
-    transition: max-height 0.5s ease-out; 
-    padding: 10px; 
-    border: none;
-    margin: 0;
-    display: none; 
-}
+        .section-content {
+            overflow-y: auto;
+            max-height: 80vh;
+            transition: max-height 0.5s ease-out;
+            padding: 10px;
+            border: none;
+            margin: 0;
+            display: none;
+        }
 
-/* Styles supplémentaires lorsque .section-content a la classe .open */
-.section-content.open { 
-    max-height: 1000px; 
-    display: block;
-}
+        .section-content.open {
+            max-height: 1000px;
+            display: block;
+        }
 
-/* Styles pour les balises h3 à l'intérieur de .section-content */
-.section-content h3 { 
-    margin: 0; 
-    padding: 0;
-}
+        .section-content h3 {
+            margin: 0;
+            padding: 0;
+        }
 
-/* Styles pour les paragraphes à l'intérieur de .section-content */
-.section-content p { 
-    margin: 10px 0;
-}
+        .section-content p {
+            margin: 10px 0;
+        }
 
+        .carousel {
+            overflow: hidden;
+            width: 100%;
+            height: 200px;
+            margin: 3px;
+            padding: 0;
+            position: relative;
+        }
 
-/* Styles du carrousel */
-.carousel {
-    overflow: hidden;
-    width: 100%;
-    height: 200px;
-    margin: 3px;
-    padding: 0;
-}
+        .carousel-track {
+            flex-shrink: 0;
+            height: 200px;
+            display: flex;
+            width: calc(300px * 24);
+            animation: scroll 240s linear infinite;
+            margin: 0;
+            padding: 0;
+        }
 
-.carousel-track {
-    flex-shrink: 0;
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    display: flex;
-    width: calc(300px * 24);
-    animation: scroll 240s linear infinite;
-    margin: 0;
-    padding: 0;
-}
+        .carousel-track img {
+            flex-shrink: 0;
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+        }
 
-@media (max-width: 768px) { 
-    header, nav, .section { 
-        flex-direction: column; 
-    }
-.carousel img {
-    flex-shrink: 0;
-    width: 300px;
-    height: 200px;
-    object-fit: contain;
-    margin: 0;
-    padding: 0;
-}
-}
+        @media (max-width: 768px) {
+            header, nav, .section {
+                flex-direction: column;
+            }
 
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-7200px);
-    }
-}
+            .carousel img {
+                width: 100px;
+                height: auto;
+            }
+        }
 
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-7200px);
+            }
+        }
 
         h1 {
             margin: 0;
@@ -220,34 +225,33 @@
         }
 
         #experience-section,
-        #education-section,
-        #skills-section,
-        #certificates-section,
+        #formation-section,
+        #competence-section,
+        #diplome-section,
         #projects-section {
             margin: 0;
             padding: 20px;
             width: 100%;
             background-color: #fff;
-            border: 2px solid #2c3e50; 
-            padding-left: 15px; 
-            border-radius: 10px; 
-            background-color: #f7f9fc; 
+            border: 2px solid #2c3e50;
+            padding-left: 15px;
+            border-radius: 10px;
+            background-color: #f7f9fc;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         #experience-section h2,
-        #education-section h2,
-        #skills-section h2,
-        #certificates-section h2,
+        #formation-section h2,
+        #competence-section h2,
+        #diplome-section h2,
         #projects-section h2 {
-            color: #2c3e50; /* Couleur du titre */ 
-            font-family: 'Georgia', serif; /* Police élégante */ 
-            font-size: 1.8em; /* Taille de police augmentée */ 
-            border-bottom: 2px solid #2c3e50; /* Ligne en dessous du titre */ 
-            padding-bottom: 5px; 
+            color: #2c3e50;
+            font-family: 'Georgia', serif;
+            font-size: 1.8em;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 5px;
             margin-bottom: 15px;
         }
-            
 
         .job,
         .education-item {
@@ -277,38 +281,113 @@
             margin: 5px 0;
         }
 
-        P {
+        p {
             line-height: 1.0;
-            margin-top: 10px; 
-            margin-bottom: 10px; 
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
 
-        h3 { 
-            margin: 0 0 50px 0; 
+        h3 {
+            margin: 0 0 50px 0;
             padding: 10px;
             border: none;
-            width: auto; 
-            text-align: left; 
+            width: auto;
+            text-align: left;
             border-radius: 5px;
             font-weight: bold;
             color: #003366;
         }
 
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('nav a').forEach(function (link) {
-                link.addEventListener('click', function (event) {
-                    document.querySelectorAll('section').forEach(function (section) {
-                        section.style.backgroundColor = '#fff'; // Réinitialiser la couleur de fond de toutes les sections
-                    });
-                    var targetId = event.target.getAttribute('href').substring(1) + '-section';
-                    document.getElementById(targetId).style.backgroundColor = '#e2f0ff'; // Changer la couleur de fond au clic
-                });
-            });
-        });
-    </script>
+      .blinking-text {
+          background-color: yellow;
+          color: red;
+          font-size: 1.5em;
+          font-weight: bold;
+          text-align: center;
+          margin: 20px 0;
+          position: relative;
+          z-index: 9999;
+      }
+
+     .blinking-text p {
+         color: red;
+     }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* Chatbox */
+.chatbox {
+    display: none; /* Cacher la chatbox par défaut */
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    width: 300px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.chatbox-header {
+    background: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.chatbox-body {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.chatbox-footer {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.chatbox-footer input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.chatbox-footer button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.message {
+    margin: 10px 0;
+}
+
+.bot-message {
+    background: #e2e2e2;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.user-message {
+    background: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: right;
+}
+
+</style>
 </head>
+
 <body>
     <header>
         <div class="contact-info">
@@ -317,310 +396,271 @@
             <p>0699795339</p>
             <p>mnpinvest@yahoo.com</p>
         </div>
+        
         <div class="title">
-            <h1>Lead Software Engineer & Data Science Business Strategist</h1>
+            <h1>Strategic Business & Technology Advisor</h1>
         </div>
-        <img src="images/photo_1.png" alt="Photo de Si Mohamed M'Nari">
+        
+        <a href="images/photo_1.png" data-lightbox="image-1">
+            <img src="images/photo_1.png" alt="Photo de Si Mohamed M'Nari">
+        </a>
     </header>
     
     <nav aria-label="Navigation principale">
-        <a href="#experience">Expérience</a>
-        <a href="#formation">Formation</a>
-        <a href="#competence">Compétence</a>
-        <a href="#diplome">Diplôme</a>
-        <a href="#realisation">Réalisation</a>
-        <a href="#create-cv">Créer CV</a>
+        <a href="#experience-anchor">Expérience</a>
+        <a href="#formation-anchor">Formation</a>
+        <a href="#competence-anchor">Compétence</a>
+        <a href="#diplome-anchor">Diplôme</a>
+        <a href="#projects-anchor">Réalisation</a>
+        <a href="#chatbox" class="chatbox-button" id="chatboxButton">Chat-Box</a>
     </nav>
+    
     <main>
-    
-    <div id="realisation" class="carousel">
-        <div class="carousel-track">
-            <img src="images/18_LA_PROVIDENCE.jpg" alt="Réalisation 1">
-            <img src="images/19_LA_PROVIDENCE.jpg" alt="Réalisation 2"> 
-            <img src="images/20_LA_PROVIDENCE.jpg" alt="Réalisation 3"> 
-            <img src="images/21_LA_PROVIDENCE.jpg" alt="Réalisation 4"> 
-            <img src="images/23_BAILLARGUE.jpg" alt="Réalisation 5"> 
-            <img src="images/24_BAILLARGUE.jpg" alt="Réalisation 6"> 
-            <img src="images/25_BAILLARGUE.jpg" alt="Réalisation 7"> 
-            <img src="images/26_BAILLARGUE.jpg" alt="Réalisation 8"> 
-            <img src="images/11_PEROLS.jpg" alt="Réalisation 9"> 
-            <img src="images/12_PEROLS.jpg" alt="Réalisation 10"> 
-            <img src="images/13_PEROLS.jpg" alt="Réalisation 11"> 
-            <img src="images/14_CASTELNAU_LE_LEZ.jpg" alt="Réalisation 12"> 
-            <img src="images/15_CASTELNAU_LE_LEZ.jpg" alt="Réalisation 13"> 
-            <img src="images/16_CASTELNAU_LE_LEZ_RUE_DES_IFT.jpg" alt="Réalisation 16"> 
-            <img src="images/17_CASTELNAU_LE_LEZ.jpg" alt="Réalisation 17"> 
-            <img src="images/7_Juvignac.jpg" alt="Réalisition 7"> 
-            <img src="images/8_JUVIGNAC.jpg" alt="Réalisation 8"> 
-            <img src="images/9_JUVIGNAC.jpg" alt="Réalisation 9"> 
-            <img src="images/10_JUVIGNAC.jpg" alt="Réalisation 10"> 
-            <img src="images/1_MAUGUIO.jpg" alt="Réalisation 19"> 
-            <img src="images/3_MAUGUIO.jpg" alt="Réalisation 20"> 
-            <img src="images/4_MAUGUIO.jpg" alt="Réalisation 21"> 
-            <img src="images/5_MAUGUIO.jpg" alt="Réalisation 22"> 
-            <img src="images/6_MAUGUIO.jpg" alt="Réalisation 23"> 
-        </div> 
-    </div>
-
-
-            <section id="experience" class="section">
-                <div class="section-header">Expérience Professionnelle</div>
-                <div class="section-content"> 
-                    <h3>Janv. 2024 à aujourd’hui - Apprenant à distance en Software Engineering et Data Science, École des Mines PSL & ECE Tech (Paris) avec DataScientest</h3> 
-                    <p><strong>HTML :</strong> Assimilation des balises pour la création de structures de pages HTML.</p> 
-                    <p><strong>CSS :</strong> Feuilles de style en cascade pour la mise en forme et la présentation.</p> 
-                    <p><strong>JavaScript :</strong> Programmation pour les interactions dynamiques sur les sites web.</p> 
-                    <p><strong>React :</strong> Développement d'interfaces utilisateur avec ce framework JavaScript.</p> 
-                    <p><strong>SQL :</strong> Gestion et manipulation des bases de données.</p> 
-                    <p><strong>GitHub :</strong> Utilisation de la plateforme pour le contrôle de version et la collaboration.</p> 
-                    <p><strong>Machine Learning :</strong> Création et entraînement de modèles pour les prédictions et les analyses.</p> 
-                    <p><strong>Récupération de données :</strong> Collecte des datasets sur Kaggle.</p> 
-                    <p><strong>Nettoyage des données :</strong> Traitement des variables, suppression des doublons, etc.</p> 
-                    <p><strong>Prétraitement des données :</strong> Visualisation des données et utilisation de matrices de confusion.</p> 
-                    <p><strong>Création de modèles de machine learning :</strong> Analyse des coefficients de performance.</p> 
-                    <p><strong>Entraînement du modèle :</strong> Amélioration continue des performances.</p> 
-                    
-                    <h3>Mars 2020 à Décembre 2023 - Responsable Stratégique des Opérations Commerciales et Foncieres chez Unik Concept, Promoteur immobilier</h3> 
-                    <p><strong>Analyse de PLU :</strong> Plan local d'urbanisme et zonage pour la création d'une base de données à prospecter.</p> 
-                    <p><strong>Gestion de Données :</strong> Implémentation d'un système de gestion des informations sur les biens fonciers.</p> 
-                    <p><strong>Prospection Clientèle B2B et B2C :</strong> Porte-à-porte, télémarketing, SEO et SEA.</p> 
-                    <p><strong>Négociation de Contrats :</strong> Conclusion de contrats de réservation de biens fonciers pour des montages immobiliers.</p> 
-                    <p><strong>Études de Faisabilité :</strong> Analyse des projets immobiliers et évaluation de leur faisabilité sur les terrains réservés.</p> 
-                    <p><strong>Gestion des Relations :</strong> Coordination avec les propriétaires fonciers et les partenaires pour faciliter les transactions.</p> 
-                    <p><strong>Analyse du Marché :</strong> Évaluation des tendances du marché et des coûts de développement pour déterminer des prix de vente compétitifs.</p> 
-                    <p><strong>Démarches Administratives :</strong> Gestion des permis de construire, déclarations préalables de travaux, demandes de raccordement ERDF et coordination avec les géomètres.</p> 
-                    <p><strong>Coordination Municipale :</strong> Liaison avec les services municipaux et les professionnels pour garantir la conformité des projets.</p> 
-                    <p><strong>Commercialisation et Vente :</strong> Développement de stratégies de commercialisation et réalisation des ventes immobilières.</p> 
-                    <p><strong>Montage Financier :</strong> Analyse des capacités financières des acquéreurs et élaboration de plans de financement adaptés.</p> 
-                    <p><strong>Préparation Contractuelle :</strong> Rédaction des documents contractuels et coordination avec les notaires pour finaliser les transactions.</p> 
-                    <p><strong>Supervision de Chantiers :</strong> Coordination des sous-traitants pour les travaux de gros œuvre et de second œuvre, garantissant qualité et respect des délais.</p> 
-                    
-                    <h3>Septembre 2015 - Janvier 2020 - Développeur Foncier, BTL Promotion, Castelnau-Le-Lez</h3> 
-                    <p><strong>Développement de Stratégie :</strong> Prospection foncière, porte-à-porte, télémarketing, multicanal SEO/SEA.</p> 
-                    <p><strong>Gestion des Relations :</strong> Relations avec les élus locaux, architectes, géomètres, et gestion des raccordements.</p> 
-                    <p><strong>Négociation des Contrats :</strong> Conclusion de contrats de réservation de biens fonciers pour des montages immobiliers.</p> 
-                    <p><strong>Commercialisation et Vente :</strong> Développement de stratégies de commercialisation et réalisation des ventes immobilières.</p> 
-                    <p><strong>Montage Financier :</strong> Analyse des capacités financières des acquéreurs et élaboration de plans de financement adaptés.</p> 
-                    
-                    <h3>Mars 2005 - Juillet 2015 - Directeur des Ventes Régional, Vias-Sète-Montpellier-Nïmes</h3> 
-                    <p>blblblblblblblblblblblblb</p>
-                </div> 
-            </section>
-
-        <section id="formation" class="section">
-            <div class="section-header">Formation</div> 
-            <div class="section-content"> 
-                <!-- Contenu de la formation --> 
-                 <p>Contenu de la formation ici...</p> 
-            </div> 
-        </section>
-
-        <section id="competence" class="section">
-            <div class="section-header">Compétence</div> 
-            <div class="section-content"> 
-                <!-- Contenu des compétences --> 
-                 <p>Contenu des compétences ici...</p> 
-            </div> 
-        </section>
-        
-        <section id="diplome" class="section">
-            <div class="section-header">Diplôme</div> 
-            <div class="section-content"> 
-                <!-- Contenu des diplômes --> 
-                <p>Contenu des diplômes ici...</p> 
-            </div> 
-        </section>
-
-        <section id="create-cv" class="section"> 
-            <div class="section-header">Créer mon CV</div> 
-            <div class="section-content">
-                <form id="cvForm" action="create-user-cv.php" method="POST" enctype="multipart/form-data" onsubmit="alert('Formulaire soumis !');"> 
-                    <label for="nom">Nom:</label> 
-                    <input type="text" id="nom" name="nom" required><br><br>
-        
-                    <label for="prenom">Prénom:</label> 
-                    <input type="text" id="prenom" name="prenom" required><br><br>
-        
-                    <label for="adresse">Adresse:</label> 
-                    <input type="text" id="adresse" name="adresse" required><br><br>
-        
-                    <label for="email">Email:</label> 
-                    <input type="email" id="email" name="email" required><br><br>
-        
-                    <label for="telephone">Téléphone:</label> 
-                    <input type="tel" id="telephone" name="telephone" required><br><br>
-        
-                    <label for="photo">Photo de profil:</label> 
-                    <input type="file" id="photo" name="photo" accept="image/*"><br><br>
-        
-                    <label for="description">Description:</label> 
-                    <textarea id="description" name="description" required></textarea><br><br>
-        
-                    <h3>Expérience Professionnelle</h3>
-                    <div id="experiences"> 
-                        <div class="experience"> 
-                            <label for="experience-title">Titre :</label> 
-                            <input type="text" name="experience-title[]" required><br><br> 
-                            <label for="experience">Description :</label> 
-                            <textarea name="experience[]" required></textarea><br><br> 
-                        </div> 
-                    </div> 
-                    <button type="button" onclick="addExperience()">Ajouter une expérience</button><br><br>
-        
-                    <h3>Formation</h3> 
-                    <div id="formations"> 
-                        <div class="formation"> 
-                            <label for="formation-title">Titre :</label> 
-                            <input type="text" name="formation-title[]" required><br><br> 
-                            <label for="formation">Description :</label> 
-                            <textarea name="formation[]" required></textarea><br><br> 
-                        </div> 
-                    </div> 
-                    <button type="button" onclick="addFormation()">Ajouter une formation</button><br><br>
-        
-                    <h3>Compétences</h3> 
-                    <div id="competences"> 
-                        <div class="competence"> 
-                            <label for="competence-title">Titre :</label> 
-                            <input type="text" name="competence-title[]" required><br><br> 
-                            <label for="competence">Description :</label> 
-                            <textarea name="competence[]" required></textarea><br><br> 
-                        </div> 
-                    </div> 
-                    <button type="button" onclick="addCompetence()">Ajouter une compétence</button><br><br>
-        
-                    <h3>Diplômes</h3> 
-                    <div id="diplomes"> 
-                        <div class="diplome"> 
-                            <label for="diplome-title">Titre :</label> 
-                            <input type="text" name="diplome-title[]" required><br><br> 
-                            <label for="diplome">Fichier :</label> 
-                            <input type="file" name="diplome[]" accept=".pdf, image/*"><br><br> 
-                        </div> 
-                    </div> 
-                    <button type="button" onclick="addDiplome()">Ajouter un diplôme</button><br><br>
-        
-                    <h3>Réalisations</h3> 
-                    <div id="realisations"> 
-                        <div class="realisation"> 
-                            <label for="realisation-title">Titre :</label> 
-                            <input type="text" name="realisation-title[]" required><br><br> 
-                            <label for="realisation">Images :</label> 
-                            <input type="file" name="realisation[]" accept="image/*" multiple><br><br> 
-                        </div> 
-                    </div> 
-                    <button type="button" onclick="addRealisation()">Ajouter une réalisation</button><br><br>
-        
-                    <button type="submit">Créer mon site CV</button>
-                </form>
-            </div> 
-        </section> 
+        <div class="blinking-text" style="background-color: yellow; color: red; font-size: 1.5em; font-weight: bold; text-align: center; margin: 20px 0; position: relative; z-index: 9999;">
+            <p style="color: red;">Découvrez quelques-unes de mes réalisations exceptionnelles !</p>
+        </div>
+              
+        <div id="realisation" class="carousel">
+            <div class="carousel-track">
+                <img src="images/18_LA_PROVIDENCE.jpg" alt="Réalisation 1">
+                <img src="images/19_LA_PROVIDENCE.jpg" alt="Réalisation 2">
+                <img src="images/20_LA_PROVIDENCE.jpg" alt="Réalisation 3">
+                <img src="images/21_LA_PROVIDENCE.jpg" alt="Réalisation 4">
+                <img src="images/23_BAILLARGUE.jpg" alt="Réalisation 5">
+                <img src="images/24_BAILLARGUE.jpg" alt="Réalisation 6">
+                <img src="images/25_BAILLARGUE.jpg" alt="Réalisation 7">
+                <img src="images/26_BAILLARGUE.jpg" alt="Réalisation 8">
+                <img src="images/11_PEROLS.jpg" alt="Réalisation 9">
+                <img src="images/12_PEROLS.jpg" alt="Réalisation 10">
+                <img src="images/13_PEROLS.jpg" alt="Réalisation 11">
+                <img src="images/14_CASTELNAU_LE_LEZ.jpg" alt="Réalisation 12">
+                <img src="images/15_CASTELNAU_LE_LEZ.jpg" alt="Réalisation 13">
+                <img src="images/16_CASTELNAU_LE_LEZ_RUE_DES_IFT.jpg" alt="Réalisation 16">
+                <img src="images/17_CASTELNAU_LE_LEZ.jpg" alt="Réalisation 17">
+                <img src="images/7_Juvignac.jpg" alt="Réalisition 7">
+                <img src="images/8_JUVIGNAC.jpg" alt="Réalisation 8">
+                <img src="images/9_JUVIGNAC.jpg" alt="Réalisation 9">
+                <img src="images/10_JUVIGNAC.jpg" alt="Réalisation 10">
+                <img src="images/1_MAUGUIO.jpg" alt="Réalisation 19">
+                <img src="images/3_MAUGUIO.jpg" alt="Réalisation 20">
+                <img src="images/4_MAUGUIO.jpg" alt="Réalisation 21">
+                <img src="images/5_MAUGUIO.jpg" alt="Réalisation 22">
+                <img src="images/6_MAUGUIO.jpg" alt="Réalisation 23">
+            </div>
+        </div>
     </main>
-    
 
+    <main>
+        <div id="experience-anchor"></div>
+        <section id="experience-section" class="section">
+            <div class="section-header">Expérience Professionnelle</div>
+        <div class="section-content">
+            <h3>Janv. 2024 à aujourd’hui - Apprenant à distance en Software Engineering et Data Science, École des Mines PSL & ECE Tech (Paris) avec DataScientest</h3> 
+            <p><strong>HTML :</strong> Assimilation des balises pour la création de structures de pages HTML.</p> 
+            <p><strong>CSS :</strong> Feuilles de style en cascade pour la mise en forme et la présentation.</p> 
+            <p><strong>JavaScript :</strong> Programmation pour les interactions dynamiques sur les sites web.</p> 
+            <p><strong>React :</strong> Développement d'interfaces utilisateur avec ce framework JavaScript.</p> 
+            <p><strong>SQL :</strong> Gestion et manipulation des bases de données.</p> 
+            <p><strong>GitHub :</strong> Utilisation de la plateforme pour le contrôle de version et la collaboration.</p> 
+            <p><strong>Machine Learning :</strong> Création et entraînement de modèles pour les prédictions et les analyses.</p> 
+            <p><strong>Récupération de données :</strong> Collecte des datasets sur Kaggle.</p> 
+            <p><strong>Nettoyage des données :</strong> Traitement des variables, suppression des doublons, etc.</p> 
+            <p><strong>Prétraitement des données :</strong> Visualisation des données et utilisation de matrices de confusion.</p> 
+            <p><strong>Création de modèles de machine learning :</strong> Analyse des coefficients de performance.</p> 
+            <p><strong>Entraînement du modèle :</strong> Amélioration continue des performances.</p>
 
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Gestion des en-têtes de section
-            const headers = document.querySelectorAll('.section-header');
-            headers.forEach(header => {
-                header.addEventListener('click', function () {
-                    const content = this.nextElementSibling;
-                    content.classList.toggle('open');
-                });
-            });
-    
-            // Gestion des liens de navigation
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetSection = document.getElementById(targetId);
-                    const content = targetSection.querySelector('.section-content');
-                    content.classList.toggle('open');
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-    
-            // Soumission du formulaire
-            document.getElementById('cvForm').addEventListener('submit', function(event) {
-                // Commentaire ou suppression de preventDefault pour permettre la soumission normale
-                // event.preventDefault(); // Cette ligne est commentée ou supprimée
-                alert('Formulaire soumis !');
-            });
+            <h3>Mars 2020 à Décembre 2023 - Responsable Stratégique des Opérations Commerciales et Foncieres chez Unik Concept, Promoteur immobilier</h3> 
+            <p><strong>Analyse de PLU :</strong> Plan local d'urbanisme et zonage pour la création d'une base de données à prospecter.</p> 
+            <p><strong>Gestion de Données :</strong> Implémentation d'un système de gestion des informations sur les biens fonciers.</p> 
+            <p><strong>Prospection Clientèle B2B et B2C :</strong> Porte-à-porte, télémarketing, SEO et SEA.</p> 
+            <p><strong>Négociation de Contrats :</strong> Conclusion de contrats de réservation de biens fonciers pour des montages immobiliers.</p> 
+            <p><strong>Études de Faisabilité :</strong> Analyse des projets immobiliers et évaluation de leur faisabilité sur les terrains réservés.</p> 
+            <p><strong>Gestion des Relations :</strong> Coordination avec les propriétaires fonciers et les partenaires pour faciliter les transactions.</p> 
+            <p><strong>Analyse du Marché :</strong> Évaluation des tendances du marché et des coûts de développement pour déterminer des prix de vente compétitifs.</p> 
+            <p><strong>Démarches Administratives :</strong> Gestion des permis de construire, déclarations préalables de travaux, demandes de raccordement ERDF et coordination avec les géomètres.</p> 
+            <p><strong>Coordination Municipale :</strong> Liaison avec les services municipaux et les professionnels pour garantir la conformité des projets.</p> 
+            <p><strong>Commercialisation et Vente :</strong> Développement de stratégies de commercialisation et réalisation des ventes immobilières.</p> 
+            <p><strong>Montage Financier :</strong> Analyse des capacités financières des acquéreurs et élaboration de plans de financement adaptés.</p> 
+            <p><strong>Préparation Contractuelle :</strong> Rédaction des documents contractuels et coordination avec les notaires pour finaliser les transactions.</p> 
+            <p><strong>Supervision de Chantiers :</strong> Coordination des sous-traitants pour les travaux de gros œuvre et de second œuvre, garantissant qualité et respect des délais.</p>
+
+            <h3>Septembre 2015 - Janvier 2020 - Développeur Foncier, BTL Promotion, Castelnau-Le-Lez</h3> 
+            <p><strong>Développement de Stratégie :</strong> Prospection foncière, porte-à-porte, télémarketing, multicanal SEO/SEA.</p> 
+            <p><strong>Gestion des Relations :</strong> Relations avec les élus locaux, architectes, géomètres, et gestion des raccordements.</p> 
+            <p><strong>Négociation des Contrats :</strong> Conclusion de contrats de réservation de biens fonciers pour des montages immobiliers.</p> 
+            <p><strong>Commercialisation et Vente :</strong> Développement de stratégies de commercialisation et réalisation des ventes immobilières.</p> 
+            <p><strong>Montage Financier :</strong> Analyse des capacités financières des acquéreurs et élaboration de plans de financement adaptés.</p>
+
+            <h3>Mars 2005 - Juillet 2015 - Directeur des Ventes Régional, Alternative Solar System, Perpignan à Nimes</h3> 
+            <p><strong>Développement de Stratégie :</strong> Prospection foncière, porte-à-porte, télémarketing.</p> 
+            <p><strong>Analyse de PLU :</strong> Plan local d'urbanisme et zonage pour la création d'une base de données à prospecter.</p> 
+            <p><strong>Négociation de Contrats :</strong> Conclusion de contrats de baux emphytéotiques pour des installations photovoltaïques.</p>
+            <p><strong>Commercialisation et Vente :</strong> Développement de stratégies de commercialisation.</p> 
+            <p><strong>Gestion des Relations :</strong> Relations avec les élus locaux et gestion des raccordements.</p>
+            <p><strong>Démarches Administratives :</strong> Gestion des permis de construire, déclarations préalables de travaux, demandes de raccordement ERDF.</p> 
+            <p><strong>Montage Financier :</strong> Analyse des capacités financières des clients et élaboration de plans de financement adaptés.</p>
+            <p><strong>Supervision de Chantiers :</strong> Coordination des sous-traitants pour les travaux de gros œuvre et de second œuvre, garantissant qualité et respect des délais.</p>
+
+            <h3>Octobre 2003 - Février 2005 - Directeur des ventes dans le secteur de l’amélioration de l’habitat - Huis-Clos Narbonne.</h3>
+            <p><strong>Management</strong> d'une équipe de 5 commerciaux et téléprospecteurs/trices, avec débriefing régulier.</p>
+            <p><strong>Coordination</strong> des équipes sous-traitantes.</p>
+            <p><strong>Porte à porte</strong> et télémarketing.</p>
+            <p><strong>Vente</strong> face à face.</p>
+            <p><strong>Montage financier</strong> des projets.</p>
+            <p><strong>Organisation</strong> d'événements GMS et foires exposition.</p>
+            <p><strong>Accompagnement et formation</strong> aux méthodes de vente.</p>
+            <p><strong>Fidélisation</strong> de la clientèle.</p>
+
+            <h3>Juin 1999 - Septembre 2003 - Représentant technico-commercial et Directeur des ventes KparK Montpellier.</h3>
+        </div>
+    </section>
+
+    <div id="formation-anchor"></div>
+    <section id="formation-section" class="section">
+        <div class="section-header">Formation</div>
+        <div class="section-content">
+            <!-- Contenu de la section Formation -->
+            <p>Contenu de la formation ici...</p>
+        </div>
+    </section>
+
+    <div id="competence-anchor"></div>
+    <section id="competence-section" class="section">
+        <div class="section-header">Compétence</div>
+        <div class="section-content">
+            <!-- Contenu de la section Compétences -->
+            <p>Contenu des compétences ici...</p>
+        </div>
+    </section>
+
+    <div id="diplome-anchor"></div>
+    <section id="diplome-section" class="section">
+        <div class="section-header">Diplôme</div>
+        <div class="section-content">
+            <!-- Contenu de la section Diplômes -->
+            <p>Contenu des diplômes ici...</p>
+        </div>
+    </section>
+</main>
+
+<!-- Chatbox -->
+<div class="chatbox" id="chatbox">
+    <div class="chatbox-header">
+        <h2>Chatbox</h2>
+    </div>
+    <div class="chatbox-body" id="chatbox-body">
+        <div class="message bot-message">Bonjour et bienvenue ! Explorez mon parcours et posez toutes vos questions. Je suis là pour vous aider.</div>
+    </div>
+    <div class="chatbox-footer">
+        <input type="text" id="user-input" placeholder="Tapez votre message ici...">
+        <button onclick="sendMessage()">Envoyer</button>
+    </div>
+</div>
+
+<!-- Script de la chatbox -->
+<script>
+const chatboxBody = document.getElementById('chatbox-body');
+const userInput = document.getElementById('user-input');
+const chatboxButton = document.getElementById('chatboxButton');
+
+// Variables pour suivre la conversation
+let userName = '';
+let userCompany = '';
+let conversationStep = 0;
+
+// Fonction pour afficher/masquer la chatbox
+function toggleChatbox() {
+    const chatbox = document.getElementById('chatbox');
+    if (chatbox.style.display === 'none' || !chatbox.style.display) {
+        chatbox.style.display = 'block';
+    } else {
+        chatbox.style.display = 'none';
+    }
+}
+
+// Ajouter l'événement pour le bouton de la chatbox
+document.addEventListener('DOMContentLoaded', (event) => {
+    if (chatboxButton) {
+        chatboxButton.addEventListener('click', (event) => {
+            event.preventDefault(); // Empêche le comportement par défaut du lien
+            toggleChatbox();
         });
-    
-        // Fonctions pour ajouter des champs dynamiques
-        function addExperience() {
-            const container = document.getElementById('experiences');
-            const newExperience = document.createElement('div');
-            newExperience.className = 'experience';
-            newExperience.innerHTML = `
-                <label for="experience-title">Titre :</label>
-                <input type="text" name="experience-title[]" required><br><br>
-                <label for="experience">Description :</label>
-                <textarea name="experience[]" required></textarea><br><br>
-            `;
-            container.appendChild(newExperience);
+    }
+});
+
+function sendMessage() {
+    const userMessage = userInput.value.trim().toLowerCase();
+    if (userMessage === '') return;
+
+    // Afficher le message de l'utilisateur
+    const userMessageElement = document.createElement('div');
+    userMessageElement.classList.add('message', 'user-message');
+    userMessageElement.textContent = userMessage;
+    chatboxBody.appendChild(userMessageElement);
+    userInput.value = '';
+
+    // Réponse du bot
+    const botMessageElement = document.createElement('div');
+    botMessageElement.classList.add('message', 'bot-message');
+    let botResponse = 'Je suis désolé, je ne comprends pas votre question. Pouvez-vous la reformuler ou poser une autre question ?';
+
+    if (conversationStep === 0) {
+        botResponse = 'Bonjour et bienvenue sur mon site interactif ! Quel est votre nom et le nom de votre société ?';
+        conversationStep = 1;
+    } else if (conversationStep === 1) {
+        const parts = userMessage.split(' ');
+        if (parts.length >= 2) {
+            userName = parts[0];
+            userCompany = parts.slice(1).join(' ');
+            botResponse = `Enchanté ${userName} de la société ${userCompany}. Moi, je suis Si Mohamed M'Nari. Avez-vous eu le temps de regarder mon site interactif regroupant mes expériences, mes réalisations, et mes formations ?`;
+            conversationStep = 2;
+        } else {
+            botResponse = 'Pourriez-vous préciser votre nom et le nom de votre société ?';
         }
-    
-        function addFormation() {
-            const container = document.getElementById('formations');
-            const newFormation = document.createElement('div');
-            newFormation.className = 'formation';
-            newFormation.innerHTML = `
-                <label for="formation-title">Titre :</label>
-                <input type="text" name="formation-title[]" required><br><br>
-                <label for="formation">Description :</label>
-                <textarea name="formation[]" required></textarea><br><br>
-            `;
-            container.appendChild(newFormation);
-        }
-    
-        function addCompetence() {
-            const container = document.getElementById('competences');
-            const newCompetence = document.createElement('div');
-            newCompetence.className = 'competence';
-            newCompetence.innerHTML = `
-                <label for="competence-title">Titre :</label>
-                <input type="text" name="competence-title[]" required><br><br>
-                <label for="competence">Description :</label>
-                <textarea name="competence[]" required></textarea><br><br>
-            `;
-            container.appendChild(newCompetence);
-        }
-    
-        function addDiplome() {
-            const container = document.getElementById('diplomes');
-            const newDiplome = document.createElement('div');
-            newDiplome.className = 'diplome';
-            newDiplome.innerHTML = `
-                <label for="diplome-title">Titre :</label>
-                <input type="text" name="diplome-title[]" required><br><br>
-                <label for="diplome">Fichier :</label>
-                <input type="file" name="diplome[]" accept=".pdf, image/*"><br><br>
-            `;
-            container.appendChild(newDiplome);
-        }
-    
-        function addRealisation() {
-            const container = document.getElementById('realisations');
-            const newRealisation = document.createElement('div');
-            newRealisation.className = 'realisation';
-            newRealisation.innerHTML = `
-                <label for="realisation-title">Titre :</label>
-                <input type="text" name="realisation-title[]" required><br><br>
-                <label for="realisation">Images :</label>
-                <input type="file" name="realisation[]" accept="image/*" multiple><br><br>
-            `;
-            container.appendChild(newRealisation);
-        }
-    </script>
-    </body>
-    </html>
-    
+    } else if (conversationStep === 2) {
+        botResponse = `J'ai une vaste expérience en développement commercial, notamment chez Unik Concept où j'ai géré des projets de prospection foncière et de vente immobilière. Mes compétences clés incluent l'analyse de marché, la gestion des données, la négociation, le développement de stratégies, la formation d'équipes, et la transformation digitale. Y a-t-il des domaines sur lesquels vous souhaitez en savoir plus ?`;
+        conversationStep = 3;
+    } else if (conversationStep === 3) {
+        botResponse = 'Merci pour votre message. Pour plus d\'informations, vous pouvez télécharger mon CV ou me contacter directement via les informations de contact sur mon site. Passez une excellente journée !';
+        conversationStep = 4;
+    } else {
+        botResponse = 'Si vous avez d\'autres questions, n\'hésitez pas à les poser !';
+    }
+
+    botMessageElement.textContent = botResponse;
+    chatboxBody.appendChild(botMessageElement);
+    chatboxBody.scrollTop = chatboxBody.scrollHeight;
+}
+</script>
+
+<!-- Inclus les scripts externes -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const links = document.querySelectorAll('nav a');
+    links.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                console.error('Section avec l\'ID ' + targetId + ' non trouvée.');
+            }
+        });
+    });
+});
+</script>
+
+
+
+</body>
+</html>
+
+
 
         
         
