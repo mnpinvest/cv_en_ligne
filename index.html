@@ -403,11 +403,11 @@
     </header>
     
     <nav aria-label="Navigation principale">
-        <a href="#experience-section">Expérience</a>
-        <a href="#formation-section">Formation</a>
-        <a href="#competence-section">Compétence</a>
-        <a href="#diplome-section">Diplôme</a>
-        <a href="#projects-section">Réalisation</a>
+        <a href="#experience-anchor">Expérience</a>
+        <a href="#formation-anchor">Formation</a>
+        <a href="#competence-anchor">Compétence</a>
+        <a href="#diplome-anchor">Diplôme</a>
+        <a href="#projects-anchor">Réalisation</a>
         <a href="#chatbox" class="chatbox-button" id="chatboxButton">Chat-Box</a>
     </nav>
     
@@ -447,8 +447,9 @@
     </main>
 
     <main>
-    <section id="experience-section" class="section">
-        <div class="section-header">Expérience Professionnelle</div>
+        <div id="experience-anchor"></div>
+        <section id="experience-section" class="section">
+            <div class="section-header">Expérience Professionnelle</div>
         <div class="section-content">
             <h3>Janv. 2024 à aujourd’hui - Apprenant à distance en Software Engineering et Data Science, École des Mines PSL & ECE Tech (Paris) avec DataScientest</h3> 
             <p><strong>HTML :</strong> Assimilation des balises pour la création de structures de pages HTML.</p> 
@@ -510,6 +511,7 @@
         </div>
     </section>
 
+    <div id="formation-anchor"></div>
     <section id="formation-section" class="section">
         <div class="section-header">Formation</div>
         <div class="section-content">
@@ -518,6 +520,7 @@
         </div>
     </section>
 
+    <div id="competence-anchor"></div>
     <section id="competence-section" class="section">
         <div class="section-header">Compétence</div>
         <div class="section-content">
@@ -526,6 +529,7 @@
         </div>
     </section>
 
+    <div id="diplome-anchor"></div>
     <section id="diplome-section" class="section">
         <div class="section-header">Diplôme</div>
         <div class="section-content">
@@ -639,11 +643,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const targetElement = document.getElementById(targetId);
             if (targetElement) {
                 targetElement.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                console.error('Section avec l\'ID ' + targetId + ' non trouvée.');
             }
         });
     });
 });
 </script>
+
 </body>
 </html>
 
