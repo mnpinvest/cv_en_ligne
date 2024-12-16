@@ -285,11 +285,25 @@ h3 {
     color: red;
 }
 
+/* Animation clignotante */
 @keyframes blinker {
     50% {
         opacity: 0;
     }
 }
+
+.blinking-text {
+    background-color: yellow; /* Fond jaune */
+    color: red; /* Texte en rouge */
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+    z-index: 9999;
+    animation: blinker 1s linear infinite;
+}
+
 
 /* Chatbox */
 .chatbox {
