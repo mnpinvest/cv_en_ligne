@@ -19,6 +19,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     });
                     targetElement.classList.add('open');
                     targetElement.scrollIntoView({ behavior: 'smooth' });
+
+                    // Ouvrir la Chatbox si c'est la section chatbox
+                    if (targetId === 'chatbox') {
+                        document.querySelector('.chatbox').style.display = 'block';
+                    } else {
+                        document.querySelector('.chatbox').style.display = 'none';
+                    }
                 }
             } else {
                 console.error('La section cible est introuvable :', targetId);
@@ -26,4 +33,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-
