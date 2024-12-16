@@ -417,6 +417,7 @@ h3 {
         justify-content: space-between;  /* Espacer les éléments horizontalement */
         padding: 10px;  /* Réduire le padding pour les écrans mobiles */
         text-align: left;  /* Aligner le texte à gauche */
+        position: relative;  /* Pour positionner les éléments absolument à l'intérieur */
     }
     header img {
         width: 50px;  /* Réduire la taille de la photo de profil */
@@ -425,9 +426,12 @@ h3 {
         top: 10px;  /* Positionner l'image en haut */
     }
     .title {
-        font-size: 0.8em;  /* Réduire la taille de la police pour tenir sur une ligne */
+        font-size: 1em;  /* Ajuster la taille de la police pour les écrans mobiles */
         margin: 0;  /* Réinitialiser les marges */
-        margin-right: 60px;  /* Ajouter une marge à droite pour éviter de chevaucher l'image */
+        position: absolute;  /* Placer le texte de titre en absolu */
+        left: 10px;  /* Positionner le texte à gauche */
+        top: 10px;  /* Positionner le texte en haut */
+        right: 70px;  /* Empêcher le texte de chevaucher l'image de profil */
     }
     .contact-info {
         font-size: 0.9em;  /* Ajuster la taille de la police pour les écrans mobiles */
