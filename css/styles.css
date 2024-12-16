@@ -420,12 +420,14 @@ h3 {
     }
     header img {
         width: 50px;  /* Réduire la taille de la photo de profil */
-        margin-left: auto;  /* Pousser l'image complètement à droite */
-        position: relative;  /* Assurer que l'image se positionne correctement */
+        position: absolute;  /* Placer l'image de profil en absolu */
+        right: 10px;  /* Positionner l'image à droite */
+        top: 10px;  /* Positionner l'image en haut */
     }
     .title {
-        font-size: 1em;  /* Ajuster la taille de la police pour les écrans mobiles */
+        font-size: 0.8em;  /* Réduire la taille de la police pour tenir sur une ligne */
         margin: 0;  /* Réinitialiser les marges */
+        margin-right: 60px;  /* Ajouter une marge à droite pour éviter de chevaucher l'image */
     }
     .contact-info {
         font-size: 0.9em;  /* Ajuster la taille de la police pour les écrans mobiles */
