@@ -93,7 +93,7 @@ main {
 .section {
     margin: 0;
     padding: 0;
-    background-color: transparent;  /* Supprimer l'arrière-plan des sections */
+    width: 100%;  /* Assurez-vous que les sections sont de la même largeur */
 }
 
 .section-header {
@@ -111,18 +111,16 @@ main {
     cursor: pointer;
 }
 
-.section + .section {
-    margin-top: -2px;
-}
-
 .section-content {
     display: none; /* Masquer par défaut */
     overflow-y: auto;
     max-height: 80vh;
     transition: max-height 0.5s ease-out;
-    padding: 10px;
-    border: none;
+    padding: 20px;
+    border: 2px solid #2c3e50;
+    background-color: #fff;  /* Fond blanc pour le contenu */
     margin: 0;
+    border-radius: 0 0 5px 5px;  /* Coins arrondis en bas seulement */
 }
 
 /* Classe pour afficher le contenu des sections */
@@ -199,7 +197,7 @@ h1 {
 section {
     padding: 0;
     margin: 0;
-    background-color: #fff;
+    background-color: transparent; /* Fond transparent pour les sections */
     border-radius: 0;
     transition: background-color 0.3s ease-in-out;
 }
@@ -214,12 +212,9 @@ section {
 /* Sections spécifiques */
 #experience, #formation, #competence, #diplome, #projects {
     margin: 0;
-    padding: 20px;
-    width: 100%;
-    border: 2px solid #2c3e50;
-    padding-left: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;  /* Assurez-vous que les sections sont de la même largeur */
+    border: none;  /* Enlever la bordure */
+    box-shadow: none;  /* Enlever l'ombre */
 }
 
 #experience h2, #formation h2, #competence h2, #diplome h2, #projects h2 {
