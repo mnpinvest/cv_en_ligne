@@ -61,22 +61,20 @@ header img {
 
 nav {
     position: sticky;
-    top: 0px;
+    top: 0;
     height: auto;
     z-index: 1000;
-    margin: 0;
     display: flex;
     justify-content: center;
-    background-color: #d3d3d3; /* Fond gris */
+    background-color: #d3d3d3;  /* Fond gris pour les onglets de navigation */
     padding: 10px;
     width: 100%;
-    margin-bottom: 0;
     overflow-x: auto;
     white-space: nowrap;
 }
 
 nav a {
-    color: #2c3e50; /* Couleur du texte pour les liens de navigation */
+    color: #2c3e50;  /* Couleur du texte pour les liens de navigation */
     text-decoration: none;
     margin: 0 10px;
     font-size: 1em;
@@ -117,19 +115,20 @@ main {
 }
 
 .section-content {
-    display: none; /* Ajouté */
+    display: none; /* Masquer par défaut */
     overflow-y: auto;
     max-height: 80vh;
     transition: max-height 0.5s ease-out;
     padding: 10px;
     border: none;
     margin: 0;
+    background-color: transparent; /* Supprimer l'arrière-plan gris */
 }
 
 /* Classe pour afficher le contenu des sections */
 .section-content.open {
     max-height: 1000px;
-    display: block; /* Ajouté */
+    display: block; /* Afficher lorsqu'elle est ajoutée via JavaScript */
 }
 
 .section-content h3 {
@@ -217,7 +216,6 @@ section {
     margin: 0;
     padding: 20px;
     width: 100%;
-    background-color: #f7f9fc;
     border: 2px solid #2c3e50;
     padding-left: 15px;
     border-radius: 10px;
@@ -304,7 +302,7 @@ h3 {
     position: fixed;
     bottom: 0;
     right: 15px;
-    width: 500px;
+    width: 500px; /* Élargir la largeur de la chatbox */
     background: #fff;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -363,5 +361,3 @@ h3 {
     border-radius: 5px;
     text-align: right;
 }
-
-
