@@ -370,3 +370,39 @@ h3 {
     border-radius: 5px;
     text-align: right;
 }
+
+ @media (max-width: 1200px) {
+    .section-header {
+        font-size: 20px;  /* Ajuster la taille de la police pour les écrans plus petits */
+    }
+    .section-content {
+        padding: 15px;  /* Ajuster le padding pour les écrans plus petits */
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+    nav a {
+        padding: 8px 12px;  /* Ajuster le padding pour les écrans mobiles */
+        font-size: 14px;  /* Ajuster la taille de la police pour les écrans mobiles */
+    }
+    .section-header {
+        font-size: 18px;  /* Ajuster la taille de la police pour les écrans mobiles */
+        padding: 8px;  /* Ajuster le padding pour les écrans mobiles */
+    }
+    .section-content {
+        padding: 10px;  /* Ajuster le padding pour les écrans mobiles */
+    }
+    .chatbox {
+        width: 90%;  /* Ajuster la largeur de la chatbox pour les écrans mobiles */
+        right: 5%;  /* Ajuster la position de la chatbox pour les écrans mobiles */
+    }
+    .chatbox-header, .chatbox-footer {
+        padding: 8px;  /* Ajuster le padding pour la chatbox sur les écrans mobiles */
+    }
+    .chatbox-footer input[type="text"] {
+        padding: 8px;  /* Ajuster le padding pour les entrées de texte sur les écrans mobiles */
+    }
+}
