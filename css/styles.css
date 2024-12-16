@@ -412,24 +412,28 @@ h3 {
         padding: 8px;  /* Ajuster le padding pour les entrées de texte sur les écrans mobiles */
     }
     header {
+        display: flex;  /* Utiliser flexbox pour la disposition */
         flex-direction: column;  /* Disposer les éléments de l'en-tête en colonne */
         align-items: center;  /* Centrer les éléments */
+        padding: 20px;  /* Ajouter du padding pour augmenter la hauteur de la bannière */
         text-align: center;  /* Centrer le texte */
-        padding: 10px;  /* Réduire le padding pour les écrans mobiles */
     }
     .title {
-        font-size: 1em;  /* Ajuster la taille de la police pour les écrans mobiles */
-        margin-bottom: 10px;  /* Ajouter une marge sous le titre */
+        font-size: 1.2em;  /* Ajuster la taille de la police pour les écrans mobiles */
+        margin-bottom: 10px;  /* Ajouter une marge inférieure */
+        width: 100%;  /* Faire en sorte que le titre occupe toute la largeur */
+        text-align: center;  /* Centrer le texte */
     }
     .contact-info {
+        text-align: left;  /* Aligner le texte à gauche pour les infos de contact */
         font-size: 0.9em;  /* Ajuster la taille de la police pour les écrans mobiles */
-        margin-top: 10px;  /* Ajouter une marge au-dessus pour espacer du titre */
     }
     header img {
         width: 50px;  /* Réduire la taille de la photo de profil */
         margin-top: 10px;  /* Ajouter une marge au-dessus de l'image */
-        position: relative;  /* Position normale */
+        align-self: flex-end;  /* Positionner l'image à droite */
     }
 }
+
 
 
