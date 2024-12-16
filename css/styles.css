@@ -371,7 +371,7 @@ h3 {
     text-align: right;
 }
 
- @media (max-width: 1200px) {
+@media (max-width: 1200px) {
     .section-header {
         font-size: 20px;  /* Ajuster la taille de la police pour les écrans plus petits */
     }
@@ -382,11 +382,15 @@ h3 {
 
 @media (max-width: 768px) {
     nav {
-        flex-direction: column;
+        flex-direction: column;  /* Disposer les onglets verticalement pour les petits écrans */
+        align-items: center;  /* Centrer les onglets */
     }
     nav a {
         padding: 8px 12px;  /* Ajuster le padding pour les écrans mobiles */
         font-size: 14px;  /* Ajuster la taille de la police pour les écrans mobiles */
+        display: block;  /* Assurer que les onglets prennent toute la largeur */
+        width: 100%;  /* Faire en sorte que les onglets prennent toute la largeur de l'écran */
+        text-align: center;  /* Centrer le texte des onglets */
     }
     .section-header {
         font-size: 18px;  /* Ajuster la taille de la police pour les écrans mobiles */
