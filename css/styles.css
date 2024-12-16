@@ -416,25 +416,20 @@ h3 {
         align-items: center;  /* Centrer les éléments */
         text-align: center;  /* Centrer le texte */
         padding: 10px;  /* Réduire le padding pour les écrans mobiles */
-        position: relative;  /* Pour permettre la position absolue des éléments */
     }
     .title {
         font-size: 1em;  /* Ajuster la taille de la police pour les écrans mobiles */
-        margin: 0;  /* Réinitialiser les marges */
-        position: absolute;  /* Positionner le texte de titre en absolu */
-        top: 10px;  /* Positionner le texte en haut */
-        width: 100%;  /* Faire en sorte que le titre occupe toute la largeur */
-        text-align: center;  /* Centrer le texte */
+        margin-bottom: 10px;  /* Ajouter une marge sous le titre */
     }
     .contact-info {
-        margin-top: 30px;  /* Ajouter de la marge pour éloigner le texte du titre */
+        font-size: 0.9em;  /* Ajuster la taille de la police pour les écrans mobiles */
+        margin-top: 10px;  /* Ajouter une marge au-dessus pour espacer du titre */
     }
     header img {
         width: 50px;  /* Réduire la taille de la photo de profil */
         margin-top: 10px;  /* Ajouter une marge au-dessus de l'image */
         position: relative;  /* Position normale */
-        right: 0;  /* Réinitialiser la position */
-        top: 10px;  /* Ajouter un espace par rapport au haut */
     }
 }
+
 
