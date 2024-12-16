@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
         link.addEventListener('click', function (event) {
             event.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId).querySelector('.section-content');
+            const targetElement = document.querySelector(`#${targetId} .section-content`);
 
             if (targetElement) {
                 // Si la section est déjà ouverte, la fermer
