@@ -1,3 +1,4 @@
+/* Styles généraux */
 * {
     margin: 0;
     padding: 0;
@@ -91,23 +92,21 @@ main {
 }
 
 .section {
-    margin: 0;
-    padding: 0;
-    width: 100%;  /* Assurez-vous que les sections sont de la même largeur */
+    padding: 60px 20px;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 5px;
 }
 
 .section-header {
-    width: 100%;
-    margin: 0;
-    display: block;
-    background-color: #2c3e50;  /* Fond bleu pour les en-têtes de section */
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: #2c3e50;
     color: #fff;
     padding: 10px;
-    font-size: 24px;
     font-weight: bold;
-    text-align: center;
     border: 2px solid #fff;
-    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -303,7 +302,6 @@ h3 {
     z-index: 9999;
     animation: blinker 1s linear infinite;
 }
-
 
 /* Chatbox */
 .chatbox {
