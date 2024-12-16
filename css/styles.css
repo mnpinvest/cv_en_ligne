@@ -230,18 +230,6 @@ section {
     margin-bottom: 15px;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
-    background: #e2e2e2;
-    margin-bottom: 5px;
-    padding: 10px;
-    border-radius: 3px;
-}
-
 .certificate {
     margin-top: 10px;
 }
