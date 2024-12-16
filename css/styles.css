@@ -92,14 +92,15 @@ main {
 
 .section {
     margin: 0;
-    padding: 0;
+    padding: 20px;
     width: 100%;  /* Assurez-vous que les sections sont de la même largeur */
+    background-color: #fff; /* Fond blanc pour les sections */
+    border-radius: 5px;
 }
 
 .section-header {
     width: 100%;
     margin: 0;
-    display: block;
     background-color: #2c3e50;  /* Fond bleu pour les en-têtes de section */
     color: #fff;
     padding: 10px;
