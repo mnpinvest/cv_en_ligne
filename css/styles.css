@@ -415,4 +415,28 @@ h3 {
         display: flex;  /* Utiliser flexbox pour la disposition */
         flex-direction: column;  /* Disposer les éléments de l'en-tête en colonne */
         align-items: center;  /* Centrer les éléments */
-        padding: 30px;  /* Augmenter le padding pour augmenter
+        padding: 20px;  /* Ajouter du padding pour augmenter la hauteur de la bannière */
+        text-align: center;  /* Centrer le texte */
+        position: relative;  /* Pour permettre la position absolue des éléments */
+    }
+    .title {
+        font-size: 0.6em;  /* Réduire encore la taille de la police pour les écrans mobiles */
+        margin-bottom: 10px;  /* Ajouter une marge inférieure */
+        width: 100%;  /* Faire en sorte que le titre occupe toute la largeur */
+        text-align: center;  /* Centrer le texte */
+        position: absolute;  /* Position absolue pour placer le titre au-dessus du nom et de la photo */
+        top: 10px;  /* Positionner le titre en haut */
+    }
+    .contact-info {
+        margin-top: 50px;  /* Ajouter de la marge pour éloigner le texte du titre */
+        text-align: left;  /* Aligner le texte à gauche pour les infos de contact */
+        font-size: 0.9em;  /* Ajuster la taille de la police pour les écrans mobiles */
+        width: 100%;  /* Faire en sorte que les infos de contact occupent toute la largeur */
+    }
+    header img {
+        width: 50px;  /* Réduire la taille de la photo de profil */
+        margin-top: 60px;  /* Ajouter une marge au-dessus de l'image pour l'éloigner du titre */
+        align-self: flex-end;  /* Positionner l'image à droite */
+    }
+}
+
