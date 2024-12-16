@@ -9,14 +9,21 @@ document.addEventListener('DOMContentLoaded', function () {
             const targetElement = document.getElementById(targetId).querySelector('.section-content');
 
             if (targetElement) {
-                sections.forEach(section => {
-                    section.classList.remove('open');
-                });
-                targetElement.classList.add('open');
-                targetElement.scrollIntoView({ behavior: 'smooth' });
+                if (targetElement.classList.contains('open')) {
+                    // Si la section est déjà ouverte, la fermer
+                    targetElement.classList.remove('open');
+                } else {
+                    // Sinon, fermer toutes les sections et ouvrir la section ciblée
+                    sections.forEach(section => {
+                        section.classList.remove('open');
+                    });
+                    targetElement.classList.add('open');
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
             } else {
                 console.error('La section cible est introuvable :', targetId);
             }
         });
     });
 });
+
