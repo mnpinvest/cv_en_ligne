@@ -412,21 +412,20 @@ h3 {
         padding: 8px;  /* Ajuster le padding pour les entrées de texte sur les écrans mobiles */
     }
     header {
-        flex-direction: column;  /* Disposer les éléments de l'en-tête en colonne */
-        align-items: center;  /* Centrer les éléments */
-        text-align: center;  /* Centrer le texte */
+        flex-direction: row;  /* Disposer les éléments de l'en-tête en ligne */
+        align-items: center;  /* Centrer les éléments verticalement */
+        justify-content: space-between;  /* Espacer les éléments horizontalement */
         padding: 10px;  /* Réduire le padding pour les écrans mobiles */
+        text-align: left;  /* Aligner le texte à gauche */
     }
     header img {
-        width: 100px;  /* Ajuster la largeur de la photo de profil */
-        top: auto;  /* Réinitialiser la position de l'image */
-        right: auto;  /* Réinitialiser la position de l'image */
-        margin-top: 10px;  /* Ajouter une marge au-dessus de l'image */
-        position: static;  /* Faire en sorte que l'image ne soit plus en position absolue */
+        width: 50px;  /* Réduire la taille de la photo de profil */
+        margin-left: auto;  /* Pousser l'image complètement à droite */
+        position: relative;  /* Assurer que l'image se positionne correctement */
     }
     .title {
-        font-size: 1.2em;  /* Ajuster la taille de la police pour les écrans mobiles */
-        margin-top: 0;  /* Réinitialiser la marge supérieure */
+        font-size: 1em;  /* Ajuster la taille de la police pour les écrans mobiles */
+        margin: 0;  /* Réinitialiser les marges */
     }
     .contact-info {
         font-size: 0.9em;  /* Ajuster la taille de la police pour les écrans mobiles */
