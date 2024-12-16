@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const targetElement = document.getElementById(targetId).querySelector('.section-content');
 
             if (targetElement) {
+                // Si la section est déjà ouverte, la fermer
                 if (targetElement.classList.contains('open')) {
-                    // Si la section est déjà ouverte, la fermer
                     targetElement.classList.remove('open');
                 } else {
                     // Sinon, fermer toutes les sections et ouvrir la section ciblée
