@@ -382,16 +382,19 @@ h3 {
 
 @media (max-width: 768px) {
     nav {
-        flex-direction: column;  /* Disposer les onglets verticalement pour les petits écrans */
-        align-items: center;  /* Centrer les onglets */
+        display: flex;  /* Utiliser flexbox pour la disposition */
+        flex-direction: row;  /* Disposer les onglets en ligne */
+        align-items: center;  /* Aligner les onglets au centre verticalement */
+        justify-content: space-around;  /* Espacer les onglets de manière égale */
+        padding: 5px;  /* Réduire le padding pour les écrans mobiles */
+        height: 40px;  /* Réduire la hauteur du bloc de navigation */
     }
     nav a {
-        padding: 8px 12px;  /* Ajuster le padding pour les écrans mobiles */
+        padding: 5px 10px;  /* Ajuster le padding pour les écrans mobiles */
         font-size: 14px;  /* Ajuster la taille de la police pour les écrans mobiles */
-        display: block;  /* Assurer que les onglets prennent toute la largeur */
-        width: 100%;  /* Faire en sorte que les onglets prennent toute la largeur de l'écran */
-        text-align: center;  /* Centrer le texte des onglets */
+        display: inline-block;  /* Afficher les onglets en ligne */
     }
+}
     .section-header {
         font-size: 18px;  /* Ajuster la taille de la police pour les écrans mobiles */
         padding: 8px;  /* Ajuster le padding pour les écrans mobiles */
